@@ -19,6 +19,8 @@ What you can help  in building the **Daily DSA** –
 - **Add better solutions** — if you have a simpler or cleaner version of an existing problem, feel free to share it.
 - **Help more people** — find ways to grow Daily DSA and reach learners who need beginner-friendly DSA help.
 
+- Look at this PR: [First Pull Example](https://github.com/shivamm-verma/Daily-DSA/pull/1)
+
 ___
 
 
