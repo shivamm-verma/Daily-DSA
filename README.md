@@ -19,12 +19,14 @@ What you can help  in building the **Daily DSA** –
 - **Add better solutions** — if you have a simpler or cleaner version of an existing problem, feel free to share it.
 - **Help more people** — find ways to grow Daily DSA and reach learners who need beginner-friendly DSA help.
 
-> Look at this PR: [First Pull Example](https://github.com/shivamm-verma/Daily-DSA/pull/1)
+## For contribution
+1. Read [CONTRIBUTE.md](CONTRIBUTE.md)
+1. Look at this PR: [First Pull Example](https://github.com/shivamm-verma/Daily-DSA/pull/1)
+1. Make sure you are a selected `Contributor` in your organization(GsSOC'25)
 
 ___
 
-
-> Can you help in increasing these numbers below?😄📈
+Can you help in increasing these numbers below?😄📈
 
 ![GitHub forks](https://img.shields.io/github/stars/shivamm-verma/Daily-DSA?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/shivamm-verma/Daily-DSA?style=for-the-badge)
 

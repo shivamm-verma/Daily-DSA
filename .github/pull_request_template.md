@@ -3,6 +3,10 @@ To check✅ a checlist, fill x or X in the [ ]
 Like, - [x] or - [X]
  -->
 
+## Issue number if any:-
+Fixes #<issue_number>
+<!-- example> Fixes #12 -->
+
 ## ✅ **Contribution Checklist (make sure all are checked)**
 
 - [ ] Code file added (`.cpp`, `.java`, `.py`, etc.)
