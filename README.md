@@ -20,7 +20,7 @@ What you can help  in building the **Daily DSA** –
 - **Help more people** — find ways to grow Daily DSA and reach learners who need beginner-friendly DSA help.
 
 ## For contribution
-1. Read [CONTRIBUTE.md](CONTRIBUTE.md)
+1. Read [CONTRIBUTING.md](CONTRIBUTING.md)
 1. Look at this PR: [First Pull Example](https://github.com/shivamm-verma/Daily-DSA/pull/1)
 1. Make sure you are a selected `Contributor` in your organization(GsSOC'25)
 
