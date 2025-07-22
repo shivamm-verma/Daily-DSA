@@ -1,3 +1,10 @@
+---
+name: Fault File Report 🐞
+about: Report mistakes or false information in existing problem files or solutions
+title: "[Faulty] <Short description>"
+labels: Faulty
+---
+
 ## 🐞 Fault File Report
 
 **What's wrong?**  

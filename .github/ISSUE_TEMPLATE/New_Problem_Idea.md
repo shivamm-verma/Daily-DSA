@@ -1,3 +1,10 @@
+---
+name: New Problem Idea 📝
+about: Suggest a new DSA problem for inclusion
+title: "[New Problem] <Your title here>"
+labels: New-problem
+---
+
 ## 📝 New Problem Idea
 
 **Problem Title:**  

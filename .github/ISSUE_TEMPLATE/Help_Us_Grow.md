@@ -1,3 +1,10 @@
+---
+name: Help More People 📢
+about: Suggest ideas to grow Daily DSA and help more learners
+title: "[Growth Idea] <Short description>"
+labels: Grow+
+---
+
 ## 📢 Help More People
 
 **👇🏼 Idea to grow `Daily DSA`:**  
