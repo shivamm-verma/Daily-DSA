@@ -1,4 +1,29 @@
-# Daily-DSA
+# <b><p align=center> Daily-DSA </p></b>
+
+<div align="center">
+<p>
+
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+![Visitors](https://api.visitorbadge.io/api/visitors?path=shivamm-verma%2Fdaily-dsa&countColor=%23263759&style=flat)
+![GitHub forks](https://img.shields.io/github/forks/shivamm-verma/daily-dsa)
+![GitHub Repo stars](https://img.shields.io/github/stars/shivamm-verma/daily-dsa)
+![GitHub contributors](https://img.shields.io/github/contributors/shivamm-verma/daily-dsa)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/shivamm-verma/daily-dsa)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/shivamm-verma/daily-dsa)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/shivamm-verma/daily-dsa)
+![GitHub issues](https://img.shields.io/github/issues/shivamm-verma/daily-dsa)
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/shivamm-verma/daily-dsa)
+
+![GitHub last commit](https://img.shields.io/github/last-commit/shivamm-verma/daily-dsa)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/shivamm-verma/daily-dsa)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/shivamm-verma/daily-dsa)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/t/shivamm-verma/daily-dsa)
+
+<!-- [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0) -->
+</p>
+</div>
+
 - Daily DSA is a collaborative repo of important DSA questions with simple solutions, complexities, and explanations.
 
 ## Aim
@@ -25,6 +50,14 @@ What you can help  in building the **Daily DSA** –
 1. Make sure you are a selected `Contributor` in your organization(GsSOC'25)
 
 ___
+
+## Contributions
+![repobeats.axiom.co](https://repobeats.axiom.co/api/embed/dc049bae753fa63c519baafb58a9b6880a1a5489.svg "Repobeats analytics image")
+
+## Contributors
+![contrib.rocks](https://contrib.rocks/image?repo=shivamm-verma/daily-dsa)
+
+##
 
 Can you help in increasing these numbers below?😄📈
 
