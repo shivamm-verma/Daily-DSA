@@ -1,5 +1,18 @@
 # Set Matrix Zeroes — Approaches and Analysis
 
+**Input:**
+matrix = [
+[1, 2, 3],
+[4, 0, 6],
+[7, 8, 9]
+]
+**Output:**
+[
+[1, 0, 3],
+[0, 0, 0],
+[7, 0, 9]
+]
+
 ---
 
 ## 🧠 Brute Force Approach
