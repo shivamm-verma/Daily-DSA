@@ -1,4 +1,6 @@
-# Set Matrix Zeroes — Approaches and Analysis
+# ❓ Problem: Set Matrix Zeroes
+
+Given an `m x n` integer matrix, if an element is `0`, set its **entire row and column** to `0` in-place.
 
 **Input:**
 matrix = [
@@ -15,71 +17,81 @@ matrix = [
 
 ---
 
-## 🧠 Brute Force Approach
+### 📌 Example
 
-### 🔍 Intuition:
-- Loop through each cell of the matrix.
-- When a cell contains `0`, mark its entire row and column for updating.
-- To avoid accidentally marking other cells too early, we use a marker value (like `-1` or a custom flag) instead of directly setting them to `0`.
+**Input:**
+matrix = [
+[1, 1, 1],
+[1, 0, 1],
+[1, 1, 1]
+]
 
-### 📖 Explanation:
+makefile
+Copy
+Edit
+
+**Output:**
+[
+[1, 0, 1],
+[0, 0, 0],
+[1, 0, 1]
+]
+
+markdown
+Copy
+Edit
+
+---
+
+## ✅ Brute Force Approach
+
+### 🔍 Intuition
+We traverse the matrix and **mark cells that need to be set to zero** using a placeholder value like `-1` (assuming `-1` doesn't already exist in the matrix). After marking, we go for a second pass to update all `-1` cells to `0`.
+
+### 🧠 Explanation
 1. Traverse the matrix.
-2. When you find a `0`, mark all elements in its row and column with a special flag (e.g., `-1`).
-3. After the traversal, go through the matrix again and convert all marked (`-1`) values to `0`.
-
-⚠️ This approach is not safe if the matrix contains the marker value naturally.
+2. If `matrix[i][j] == 0`, mark all `matrix[i][k]` and `matrix[k][j]` as `-1` (except if it's already `0`).
+3. Do a second traversal to convert all `-1` to `0`.
 
 ### ⏱ Time Complexity:
-- **O(N × M × (N + M))** — For each `0`, potentially marking an entire row and column.
+O(m × n × (m + n)) — worst case for each zero, marking the row and column.
 
 ### 📦 Space Complexity:
-- **O(1)** — No extra space except constants.
-  *(But potentially risky due to in-place flagging.)*
+O(1) — only using in-place marking.
 
 ---
 
-## 🚀 Better Approach
+## ✅ Better Approach
 
-### 🔍 Intuition:
-- Instead of changing the matrix immediately, keep track of the rows and columns that should be zeroed using extra arrays.
+### 🔍 Intuition
+Instead of marking in-place, maintain two arrays to **record which rows and columns** should be made zero.
 
-### 📖 Explanation:
-1. Create two arrays:
-   - `row[n]`: to mark rows that need to be zeroed.
-   - `col[m]`: to mark columns that need to be zeroed.
-2. Traverse the matrix:
-   - If `matrix[i][j] == 0`, mark `row[i] = 1` and `col[j] = 1`.
-3. Traverse the matrix again:
-   - If either `row[i] == 1` or `col[j] == 1`, set `matrix[i][j] = 0`.
+### 🧠 Explanation
+1. Create two arrays: `row[m]` and `col[n]` to track the zeros.
+2. In the first pass, if `matrix[i][j] == 0`, mark `row[i] = 1` and `col[j] = 1`.
+3. In the second pass, if `row[i] == 1` or `col[j] == 1`, set `matrix[i][j] = 0`.
 
 ### ⏱ Time Complexity:
-- **O(N × M)** — Two full traversals.
+O(m × n)
 
 ### 📦 Space Complexity:
-- **O(N + M)** — Extra space for `row` and `col` arrays.
+O(m + n)
 
 ---
 
-## 💎 Optimal Approach
+## ✅ Optimal Approach
 
-### 🔍 Intuition:
-- Use the matrix itself as the marker storage.
-- Specifically, use the **first row** and **first column** to store information about rows and columns to be zeroed.
-- Handle the first row and column carefully since they're used both as data and markers.
+### 🔍 Intuition
+Use the **first row and column of the matrix itself as the markers** to avoid extra space.
 
-### 📖 Explanation:
-1. Use `matrix[0][j]` and `matrix[i][0]` as markers for zeroing the `j`th column and `i`th row.
-2. Use a flag `isFirstColZero` to track if the **first column** initially had any zeroes (since its data gets overwritten).
-3. First pass:
-   - Mark rows and columns that need to be zeroed using the first row and column.
-4. Second pass:
-   - Traverse the matrix from **bottom-right to top-left** to avoid using overwritten markers.
-   - Use the marker values to set cells to `0`.
-5. Finally:
-   - Zero out the first row and/or first column if needed, based on flags.
+### 🧠 Explanation
+1. Use `matrix[0][j]` to mark columns, and `matrix[i][0]` to mark rows.
+2. Use a **separate flag for the first column** (since `matrix[0][0]` overlaps).
+3. First pass: mark the rows/columns.
+4. Second pass (reverse direction): update elements based on markers.
 
 ### ⏱ Time Complexity:
-- **O(N × M)** — Two passes through the matrix.
+O(m × n)
 
 ### 📦 Space Complexity:
-- **O(1)** — No additional space; in-place modifications only.
+O(1) — done in-place with no extra space.
