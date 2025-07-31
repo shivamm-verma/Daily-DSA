@@ -2,6 +2,10 @@
 
 Given an `m x n` integer matrix, if an element is `0`, set its **entire row and column** to `0` in-place.
 
+---
+
+### 📌 Example
+
 **Input:**
 matrix = [
 [1, 2, 3],
@@ -14,32 +18,6 @@ matrix = [
 [0, 0, 0],
 [7, 0, 9]
 ]
-
----
-
-### 📌 Example
-
-**Input:**
-matrix = [
-[1, 1, 1],
-[1, 0, 1],
-[1, 1, 1]
-]
-
-makefile
-Copy
-Edit
-
-**Output:**
-[
-[1, 0, 1],
-[0, 0, 0],
-[1, 0, 1]
-]
-
-markdown
-Copy
-Edit
 
 ---
 
