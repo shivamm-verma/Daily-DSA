@@ -1,6 +1,25 @@
 ##  Two Sum in a BST — Approaches Explained
 ###  Problem Statement
 Given a  `root` of a Binary Search Tree (BST) and an integer `k`, determine if there exist two nodes such that their values add up to `k`.
+### 📘 Example
+
+#### Input
+
+```text
+BST Elements (level-order input): 10, 5, 15, 3, 7, null, 18  
+Target Sum (k): 22
+output : True 
+The valid pairs are (7,15)
+```
+#### Visual Diagram
+```text
+         10
+        /  \
+       5    15
+      / \     \
+     3   7     18
+```
+
 
 ### 1️⃣ Brute Force Approach (Level Order + Sorting + Two Pointers)
 #### Idea
