@@ -20,7 +20,7 @@ void insertBST(TreeNode*& root, int val) {
 
 bool hash_find(TreeNode* root,int k,set<int>& s) {
     if (!root) return false;
-    if (s.contains(k - root->val)) return true; // Check if the complement exists in the set
+    if (s.find(k-root->val)!=s.end()) return true; // Check if the complement exists in the set
     s.insert(root->val); // Insert current node's value into the set
     return hash_find(root->left, k, s) || hash_find(root->right, k, s); // Recur for left and right subtrees
 }
