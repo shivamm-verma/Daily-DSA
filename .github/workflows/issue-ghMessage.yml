@@ -16,7 +16,7 @@ jobs:
         run: |
           COMMENT=$(cat <<EOF
           {
-            "body": "Thank you for creating this issue! We'll look into it as soon as possible. Your contributions are highly appreciated! 😊"
+            "body": "Thank you for raising this issue! We'll review it as soon as possible. We truly appreciate your contributions! ✨\n\nMeanwhile make sure you've visited the README.md, CONTRIBUTING.md, and CODE_OF_CONDUCT.md before creating a PR for this. Also, please do NOT create a PR until this issue has been assigned to you. 😊"
           }
           EOF
           )
