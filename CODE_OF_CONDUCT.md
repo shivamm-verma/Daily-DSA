@@ -1,4 +1,6 @@
-**Code of Conduct — Daily-DSA | GSSoC’25** 
+**Code of Conduct — Daily-DSA | GSSoC’25 Documentation** 
+
+---
 
 **Our Pledge**
 
