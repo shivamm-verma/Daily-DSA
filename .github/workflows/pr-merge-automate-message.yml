@@ -18,8 +18,8 @@ jobs:
         with:
           script: |
             const prNumber = context.issue.number;
-            const commentBody = `🎉 Congratulations on merging your PR! 🎉\n Thanks for your efforts and contributions! 🙌
-            Looking forward to your next contribution! 🚀`;
+            const commentBody = `### 🎉 Congrats on getting your PR merged!🙌🏼\n\nThanks  for the contribution — every small chunk of contribution helps improve the project.\n\nLooking forward to your next contribution! 🥳✨`;
+            const labelsToAdd = ['PR Merged!🥳', 'GsSOC'];
             try {
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
@@ -27,6 +27,14 @@ jobs:
                 issue_number: prNumber,
                 body: commentBody
               });
+
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                labels: labelsToAdd
+              });
+
               console.log('Successfully added comment to merged PR.');
             } catch (error) {
               console.error('Failed to add comment to merged PR:', error);
