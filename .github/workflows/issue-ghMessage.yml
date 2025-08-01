@@ -1,0 +1,34 @@
+name: Some workflow
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  bot-message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Post message when an Issue is created
+        if: github.event_name == 'issues' && github.event.action == 'opened'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.payload.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: """
+                🎉 You just created an issue in **Daily-DSA**!
+                Hold tight, the project maintainer will review your issue soon. 🙌
+
+                If you want to create a PR for this issue, follow these steps:
+                ```sh
+                git checkout -b your-branch-name
+                git add .
+                git commit -m "Description of changes"
+                git push origin your-branch-name
+                ```
+                Then, open a PR with the branch above. 💻
+                """
+            })
