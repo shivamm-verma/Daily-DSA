@@ -17,7 +17,7 @@ jobs:
       run: |
         COMMENT=$(cat <<EOF
         {
-          "body": "Thanks for submitting your PR! \nWe'll review it as soon as possible. \nIn the meantime, please double-check the file changes and ensure that all commits are accurate. If there are any unresolved review comments, feel free to resolve them. 😊"
+          "body": "### Thanks for creating a PR for your Issue! ☺️\n\nWe'll review it as soon as possible. \nIn the meantime, please double-check the **file changes** and ensure that **all commits** are accurate. \n\nIf there are any **unresolved review comments**, feel free to resolve them. 🙌🏼"
         }
         EOF
         )
