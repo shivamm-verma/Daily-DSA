@@ -15,8 +15,7 @@ jobs:
     steps:
     - name: Add Comment to Merged Pull Request
       run: |
-        # Check if the PR was merged
-        if [[ "${{ github.event.pull_request.merged }}" == "true" ]]; then
+          if [[ "$PR_MERGED" == "true" ]]; then
           COMMENT=$(cat <<EOF
           {
             "body": "🎉 Congratulations on merging your PR! 🎉\nThanks for your efforts and contributions! 🙌\nLooking forward to your next contribution! 🚀"
@@ -39,3 +38,4 @@ jobs:
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PR_MERGED: ${{ github.event.pull_request.merged }}
