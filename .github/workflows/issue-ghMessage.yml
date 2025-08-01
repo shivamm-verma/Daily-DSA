@@ -1,8 +1,8 @@
 name: Some workflow
 
 on:
-  issue_comment:
-    types: [created]
+  issues:
+    types: [opened]  # Trigger on issue creation
 
 jobs:
   bot-message:
@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Post message when an Issue is created
-        if: github.event_name == 'issues' && github.event.action == 'opened'
+        if: github.event.action == 'opened'
         uses: actions/github-script@v7
         with:
           script: |
