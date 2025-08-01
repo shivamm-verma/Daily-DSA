@@ -55,25 +55,25 @@ anyone who reports an incident.
 
 Project maintainers will follow these guidelines in determining the consequences for any action they deem in violation of this Code of Conduct:
 
-1. Correction
-*Community Impact:* Use of inappropriate language or behavior deemed unprofessional or unwelcome in the community.
+1. **Correction**
+- *Community Impact:* Use of inappropriate language or behavior deemed unprofessional or unwelcome in the community.
 
-*Consequence:* A private written warning, including an explanation of the violation and a reminder of expected behavior.
+- *Consequence:* A private written warning, including an explanation of the violation and a reminder of expected behavior.
 
-2. Warning
-*Community Impact:* A single incident or a series of actions violating community standards.
+2. **Warning**
+- *Community Impact:* A single incident or a series of actions violating community standards.
 
-*Consequence:* A formal warning with a clear explanation of consequences for continued violations. Limited interaction with project members may be enforced temporarily.
+- *Consequence:* A formal warning with a clear explanation of consequences for continued violations. Limited interaction with project members may be enforced temporarily.
 
-3. Temporary Ban
-*Community Impact:* Serious violations including sustained disruptive behavior or harassment.
+3. **Temporary Ban**
+- *Community Impact:* Serious violations including sustained disruptive behavior or harassment.
 
-*Consequence:* Temporary suspension from participation in project spaces and interactions. Violation of this ban may result in permanent removal.
+- *Consequence:* Temporary suspension from participation in project spaces and interactions. Violation of this ban may result in permanent removal.
 
-4. Permanent Ban
-*Community Impact:* Demonstrated pattern of serious violations, including continued harassment or discrimination.
+4. **Permanent Ban**
+- *Community Impact:* Demonstrated pattern of serious violations, including continued harassment or discrimination.
 
-*Consequence:* Permanent removal from all project spaces and activities.
+- *Consequence:* Permanent removal from all project spaces and activities.
 
 ---
 
