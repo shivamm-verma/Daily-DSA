@@ -2,7 +2,7 @@ name: Auto Comment on PR Merged
 
 on:
   pull_request_target:
-    types: [closed]
+    types: [closed] 
 
 permissions:
   issues: write
@@ -10,32 +10,33 @@ permissions:
 
 jobs:
   comment:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-
     steps:
-    - name: Add Comment to Merged Pull Request
-      run: |
-          if [[ "$PR_MERGED" == "true" ]]; then
-          COMMENT=$(cat <<EOF
-          {
-            "body": "🎉 Congratulations on merging your PR! 🎉\nThanks for your efforts and contributions! 🙌\nLooking forward to your next contribution! 🚀"
-          }
-          EOF
-          )
-          RESPONSE=$(curl -s -o response.json -w "%{http_code}" \
-            -X POST \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments \
-            -d "$COMMENT")
-          cat response.json
-          if [ "$RESPONSE" -ne 201 ]; then
-            echo "Failed to add comment"
-            exit 1
-          fi
-        else
-          echo "PR was not merged, skipping comment"
-        fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PR_MERGED: ${{ github.event.pull_request.merged }}
+      - name: Add Comment to Merged Pull Request
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const prNumber = context.issue.number;
+            const commentBody = `### 🎉 Congrats on getting your PR merged!🙌🏼\n\nThanks  for the contribution — every small chunk of contribution helps improve the project.\n\nLooking forward to your next contribution! 🥳✨`;
+            const labelsToAdd = ['PR Merged!🥳', 'GsSOC'];
+            try {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: commentBody
+              });
+
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                labels: labelsToAdd
+              });
+
+              console.log('Successfully added comment to merged PR.');
+            } catch (error) {
+              console.error('Failed to add comment to merged PR:', error);
+              core.setFailed(`Failed to add comment: ${error.message}`);
+            }
