@@ -3,31 +3,30 @@ import java.util.*;
 
 public class MooreVoting {
 
-    // function for implementing Moore's Voting Algorithm
+    
     public static void moore(int[] arr, int n) {
-        int count = 0; //  keep track of current candidate count
-        int el = 0;    //  store the potential majority element
-        int cnt = 0;   //  count actual occurrences of candidate
+        int count = 0; 
+        int el = 0;   
+        int cnt = 0;   
 
-        // Step 1: Finding a candidate for majority element
+  
         for (int i = 0; i < n; i++) {
             if (count == 0) {
-                el = arr[i]; // setting current element as candidate
+                el = arr[i]; 
                 count = 1;
             } else if (arr[i] == el) {
-                count++; //if  Same as candidate → increment count
+                count++; 
             } else {
-                count--; // if Different → cancel out
+                count--; 
             }
         }
 
-        // Step 2: Verifying the candidate ( really majority?)
         for (int i = 0; i < n; i++) {
             if (arr[i] == el)
                 cnt++;
         }
 
-        // Step 3: Check if count > n/2
+
         if (cnt > (n / 2)) {
             System.out.println("Majority element is :: " + el);
         } else {
