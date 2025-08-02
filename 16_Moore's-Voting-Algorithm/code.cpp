@@ -1,4 +1,4 @@
-// including all standard libraries (used in competitive programming)
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -45,29 +45,25 @@ void moore(vector<int> &arr, int n)
     }
 }
 
-// Main function
+
 int main()
 {
     int n;
 
-    // Ask user for array size
+
     cout << "Enter the size of an array :: ";
     cin >> n;
 
     vector<int> arr(n);
 
-    // Take array input
+
     cout << "Enter the elements for the array :: ";
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
 
-    /*
-     Finding the majority element in the array.
-     A majority element is one that appears more than n/2 times.
-     We use the efficient Moore's Voting Algorithm for this.
-    */
+
     moore(arr, n);
 
     return 0;

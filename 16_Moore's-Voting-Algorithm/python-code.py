@@ -1,7 +1,7 @@
-# including all standard libraries (used in competitive programming)
 
 
-# function for implementing Moore's Voting Algorithm
+
+# function for Moore's Voting Algorithm
 def moore(arr, n):
     count = 0     #  keep track of current candidate count
     el = None     #  store the potential majority element
@@ -30,16 +30,12 @@ def moore(arr, n):
 
 # Main function
 if __name__ == "__main__":
-    # Ask user for array size
+    
     n = int(input("Enter the size of an array :: "))
 
-    # Take array input
+   
     print("Enter the elements for the array :: ", end="")
     arr = list(map(int, input().split()))
 
-    """
-     Finding the majority element in the array.
-     A majority element is one that appears more than n/2 times.
-     We use the efficient Moore's Voting Algorithm for this.
-    """
+
     moore(arr, n)

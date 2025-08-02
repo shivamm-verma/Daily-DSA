@@ -1,4 +1,4 @@
-// including all standard libraries (used in competitive programming)
+
 import java.util.*;
 
 public class MooreVoting {
@@ -35,28 +35,23 @@ public class MooreVoting {
         }
     }
 
-    // Main function
+   
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n;
 
-        // Ask user for array size
+
         System.out.print("Enter the size of an array :: ");
         n = sc.nextInt();
 
         int[] arr = new int[n];
 
-        // Take array input
         System.out.print("Enter the elements for the array :: ");
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
 
-        /*
-         Finding the majority element in the array.
-         A majority element is one that appears more than n/2 times.
-         We use the efficient Moore's Voting Algorithm for this.
-        */
+      
         moore(arr, n);
     }
 }
