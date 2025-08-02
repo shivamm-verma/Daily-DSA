@@ -1,4 +1,4 @@
-package 10_maximum_subarray_sum;
+package 14_maximum_subarray_sum;
 
 public class java_code {
     public int maxSubArray(int[] arr) {
