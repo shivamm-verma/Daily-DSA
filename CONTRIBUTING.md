@@ -1,4 +1,6 @@
 # How to create a fresh ISSUE?
+> ![How to Create an Issue (1)](https://github.com/user-attachments/assets/a86a6435-1800-4003-bfc3-d04b8167fa59)
+> Look at the steps above
 
 # How to create a PR (Pull Request) for this? 
 - For Code change & No code change both.
