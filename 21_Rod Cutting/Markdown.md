@@ -18,6 +18,7 @@ Your task is to determine the **maximum total price obtainable** by cutting the 
 Price: [1, 5, 8, 9, 10, 17, 17, 20]        Maximum Obtainable Price: 22
 
 
+
         
 ### Explanation:
 - Cut the rod into lengths 2 and 6.  
