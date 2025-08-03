@@ -33,7 +33,7 @@ vector<string> letterCombinations(string digits)
 int main()
 {
     string digits;
-    cin>>digits;
+    cin >> digits;
     vector<string> combos = letterCombinations(digits);
 
     for (string s : combos)
