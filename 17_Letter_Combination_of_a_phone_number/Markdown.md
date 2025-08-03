@@ -58,3 +58,6 @@ Prints each combination
 3. String manipulation
 4. Digit-to-character mapping using a vector
 
+**Time Complexity: O(4ⁿ)**
+
+**Space Complexity: O(n × 4ⁿ)**
