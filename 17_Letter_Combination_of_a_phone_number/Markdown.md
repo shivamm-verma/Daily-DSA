@@ -58,6 +58,10 @@ Prints each combination
 3. String manipulation
 4. Digit-to-character mapping using a vector
 
+**Example input and output**
+Input - 23
+Output - ad ae af bd be bf cd ce cf
+
 **Time Complexity: O(4ⁿ)**
 
 **Space Complexity: O(n × 4ⁿ)**
