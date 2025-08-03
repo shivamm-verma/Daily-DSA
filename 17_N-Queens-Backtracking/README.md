@@ -1,6 +1,8 @@
 # N-Queens Problem: Three Approaches
 This document explains three different approaches to solving the classic N-Queens problem, ranging from a naive brute-force method to a highly optimized backtracking solution.
 
+<img height="300" src="https://github.com/user-attachments/assets/7ac4ccaf-7531-4c1b-b4a3-a971d39cc9d5">
+
 ### Problem Statement
 The N-Queens puzzle is the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other. This means no two queens can share the same row, column, or diagonal.
 
