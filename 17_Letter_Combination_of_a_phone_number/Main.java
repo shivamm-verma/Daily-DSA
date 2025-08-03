@@ -15,7 +15,6 @@ public class Main {
         String letters = keypad[digits.charAt(index) - '0'];
         for (char ch : letters.toCharArray()) {
             solve(digits, index + 1, path + ch, result);
-            sc.close();
         }
     }
 
