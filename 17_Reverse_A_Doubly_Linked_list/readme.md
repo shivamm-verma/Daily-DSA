@@ -1,33 +1,45 @@
 # Reverse a Doubly Linked List
 
-This project provides a C++ implementation to reverse a doubly linked list.
-
 ## Problem Statement
 
-Given a doubly linked list, reverse it and return the head of the reversed list.
-
-## Approach
-
-- Traverse the list and swap the `next` and `prev` pointers for each node.
-- Update the head pointer to the new front of the list.
-
-## Usage
-
-1. Clone the repository or copy the code.
-2. Compile the C++ file:
-    ```bash
-    g++ reverse_doubly_linked_list.cpp -o reverse
-    ```
-3. Run the executable:
-    ```bash
-    ./reverse
-    ```
+Given a doubly linked list, reverse the list so that the last node becomes the head and all pointers are correctly updated.
 
 ## Example
 
-**Input:** `1 <-> 2 <-> 3 <-> 4`  
-**Output:** `4 <-> 3 <-> 2 <-> 1`
+**Input:**
+```
+1 <-> 2 <-> 3 <-> 4 <-> 5
+```
 
-## License
+**Output:**
+```
+5 <-> 4 <-> 3 <-> 2 <-> 1
+```
 
-This project is licensed under the MIT License.
+## Approach
+
+- Traverse the doubly linked list.
+- For each node, swap its `next` and `prev` pointers.
+- Keep track of the new head (the last node visited).
+- Return the new head after traversal.
+
+## Pseudocode
+
+```
+function reverseDLL(head):
+    temp = head
+    newHead = head
+    while temp is not NULL:
+        swap temp.next and temp.prev
+        newHead = temp
+        temp = temp.prev
+    return newHead
+```
+
+## Time Complexity
+
+- **O(N)**, where N is the number of nodes in the list (each node is visited once).
+
+## Space Complexity
+
+- **O(1)**, as the reversal is done in-place without extra data structures.
