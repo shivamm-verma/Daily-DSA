@@ -7,6 +7,7 @@ vector<string> keypad = {
     "", "", "abc", "def",
     "ghi", "jkl", "mno", "pqrs",
     "tuv", "wxyz"};
+    
 void solve(string digits, int index, string path, vector<string> &result)
 {
     if (index == digits.size())

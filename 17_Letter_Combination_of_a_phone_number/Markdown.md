@@ -1,67 +1,63 @@
+## ✅ DSA Question: To print all letter combination of a phone number 
 
-LETTER COMBINATION OF A PHONE NUMBER - EXPLAINED
-===========================================
 
-Problem:
-Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
+## Problem
+Given a string containing digits from 2 to 9, return all possible letter combinations that the number could represent. Return the answer in any order.
 
-Explanation of solution: 
-Based on concepts of **Recursion and Backtracking.**
+Mapping of digits - 2 -> abc  
+                    3 -> def  
+                    4 -> ghi  
+                    5 -> jkl  
+                    6 -> mno  
+                    7 -> pqrs  
+                    8 -> tuv  
+                    9 -> wxyz
 
-vector<string> keypad = {
-    "",     "",     "abc",  "def",
-    "ghi",  "jkl",  "mno",  "pqrs",
-    "tuv",  "wxyz"
-};
- 
-This maps the digits 0-9 to their corresponding strings.
-keypad[2] = "abc" , keypad[3] = "def" and so on.
 
-**Recursive Function: solve()**
-void solve(string digits, int index, string path, vector<string>& result)
-This is a backtracking function that builds combination character by character.
+**Examples**
+-Input : "23" -> Output : ["ad ae af bd be bf cd ce cf"]
+-Input : "79" -> Output : ["pw px py pz qw qx qy qz rw rx ry rz sw sx sy sz"]
+## 🧭 Approach
+We will be using the DFS Recursion which is Depth First Search recursion to try all the combinations.
 
-**Base Case**
-if (index == digits.size())
-{
-    result.push_back(path);
-    return;
-}
+1. Create a mapping of digits to letters.
+    mapping[10] = {"", "", "abc", "def", "ghi", "jkl","mno", "pqrs", "tuv", "wxyz"};
 
-When we've chosen a letter for every digit, we add the path (current combination) to the result list.
+2. Defining a recursive function **solve(string digits, int index, string path, vector<string> &result)**
+    --> **If** the length of the current combination equals the input digits length, it means we formed a valid combination --> then add to result.
+    --> **Else** : 
+        - Get the current digit.
+        - Loop through all letters mapped to it.
+        - And for each letter, append it to the current combination and call the recursive function on the next digit.
 
-**Recursive Case**
-string letters = keypad[digits[index] - '0'];
-for (char ch : letters)
-{
-    solve(digits, index + 1, path + ch, result);
-}
+3. Edge Case - If input string is empty , return an empty list.
 
-The process works as following:
-#Convert the digit to an integer index (e.g., '2' - '0' = 2).
-#Fetch the letters mapped to that digit from the keypad vector.
-#For each letter:
-    Add it to the current path (path + ch)
-    Recurse to the next digit (index + 1)
+## 🔁 Generic Logic
 
-**Driver Function**
-vector<string> letterCombinations(string digits) - Initializes a result vector to hold combinations. Handles the edge case when input is empty.
+```code
+    void solve(string digits, int index, string path, vector<string> &result)
+    {
+        if (index == digits.size())
+        {
+            result.push_back(path);
+            return;
+        }
+        string letters = keypad[digits[index] - '0'];
+        for (char ch : letters)
+        {
+            solve(digits, index + 1, path + ch, result);
+        }
+    }
+    vector<string> letterCombinations(string digits)
+    {
+        vector<string> result;
+        if (digits.empty())
+            return result;
+        solve(digits, 0, "", result);
+        return result;
+    }
+```
+## ⏱️ Complexities
+    > Time Complexity - O(4ⁿ) , where n is the number of digits in input string. 
 
-**Main Function**
-Takes input like 23
-Calls the main combination function
-Prints each combination
-
-**Recap of Core Concepts Used:**
-1. Backtracking
-2. Recursive traversal
-3. String manipulation
-4. Digit-to-character mapping using a vector
-
-**Example input and output**
-Input - 23
-Output - ad ae af bd be bf cd ce cf
-
-**Time Complexity: O(4ⁿ)**
-
-**Space Complexity: O(n × 4ⁿ)**
+    > Space Complexity: O(n × 4ⁿ) 
