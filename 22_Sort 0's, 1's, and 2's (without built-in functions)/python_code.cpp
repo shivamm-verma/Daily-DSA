@@ -1,4 +1,4 @@
-ef mysort(arr):
+def mysort(arr):
     n = len(arr)
     low = 0         # Index boundary for 0s
     mid = 0         # Current index under consideration
