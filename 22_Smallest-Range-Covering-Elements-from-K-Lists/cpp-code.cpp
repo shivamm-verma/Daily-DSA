@@ -29,7 +29,7 @@ public:
         }
         int range_start = -1;
         int min_range_size = INT_MAX;
-        while (true) {
+        while (min_heap.size() == k) {
             Node current = min_heap.top();
             min_heap.pop();
             
