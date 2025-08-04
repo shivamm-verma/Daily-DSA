@@ -54,11 +54,12 @@ Given an array of integers `heights` representing the histogram's bar height whe
 
 ---
 
-⏱️ Complexities
-Time Complexity
+## ⏱️ Complexities
+
+### Time Complexity
 O(n) — Each bar is pushed and popped at most once.
 
-Space Complexity
+### Space Complexity
 O(n) — Stack is used to store indices.
 
 
