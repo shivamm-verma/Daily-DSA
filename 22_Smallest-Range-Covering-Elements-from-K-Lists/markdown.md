@@ -38,7 +38,7 @@ function smallestRange(lists):
   range_start = -1
   min_range_size = infinity
 
-  while true:
+  while min_heap.size() == k:
     (min_val, list_idx, elem_idx) = min_heap.pop()
 
     if (current_max - min_val < min_range_size):
