@@ -3,6 +3,7 @@
 <div align="center">
 <p>
 
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=shivamm-verma%2Fdaily-dsa&countColor=%23263759&style=flat)
 ![GitHub forks](https://img.shields.io/github/forks/shivamm-verma/daily-dsa)
@@ -17,7 +18,6 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/shivamm-verma/daily-dsa)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/shivamm-verma/daily-dsa)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/shivamm-verma/daily-dsa)
-[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
 <!-- [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0) -->
 </p>
@@ -63,14 +63,3 @@ Can you help in increasing these numbers below?😄📈
 
 ![GitHub forks](https://img.shields.io/github/stars/shivamm-verma/Daily-DSA?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/shivamm-verma/Daily-DSA?style=for-the-badge)
 
-## 📝 License
-
-<div align="center">
-
-<!-- Project License Statement -->
-<p>
-  This project is licensed under the terms of the <strong><a href="./LICENSE">MIT License</a></strong>.<br>
-  You are free to use, modify, and distribute this project with proper attribution.
-</p>
-
-</div>
