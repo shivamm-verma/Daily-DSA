@@ -11,82 +11,82 @@ Each team plays two matches against every other team in its group — one match 
 
 ---
 
-## 🔽 Input
+## Input
 
 - The first line of the input contains a single integer `T` denoting the number of test cases. The description of `T` test cases follows.
 - For each test case, 12 lines follow. Each of these lines describes the result of one match in the format `HomeTeamName HomeTeamGoals vs. AwayTeamGoals AwayTeamName` where `HomeTeamName` and `AwayTeamName` are strings and `HomeTeamGoals` and `AwayTeamGoals` are integers denoting the number of goals scored by the respective teams in this match.
 
 ---
 
-## 🔼 Output
+## Output
 
 For each scenario, print a single line containing two space-separated strings — the name of the top-ranked team and the name of the second top-ranked team.
 
 ---
 
-## 🔒 Constraints
+## Constraints
 
-- \( 1 \leq T \leq 50 \)
+- \( 1 `≤` T `≤` 50 \)
 - The length of the name of each team does not exceed 10
 - The name of each team contains only lowercase English letters
-- \( 0 \leq \text{number of goals scored by each team} \leq 100 \)
+- \( 0 `≤` number of goals scored by each team `≤` 100 \)
 
 ---
 
-## 🧪 Sample 1:
+## Sample 1:
 
 ### Input
 
-2
-manutd 8 vs. 2 arsenal
-lyon 1 vs. 2 manutd
-fcbarca 0 vs. 0 lyon
-fcbarca 5 vs. 1 arsenal
-manutd 3 vs. 1 fcbarca
-arsenal 6 vs. 0 lyon
-arsenal 0 vs. 0 manutd
-manutd 4 vs. 2 lyon
-arsenal 2 vs. 2 fcbarca
-lyon 0 vs. 3 fcbarca
-lyon 1 vs. 0 arsenal
-fcbarca 0 vs. 1 manutd
-a 3 vs. 0 b
-a 0 vs. 0 c
-a 0 vs. 0 d
-b 0 vs. 0 a
-b 4 vs. 0 c
-b 0 vs. 0 d
-c 0 vs. 0 a
-c 0 vs. 0 b
-c 1 vs. 0 d
-d 3 vs. 0 a
-d 0 vs. 0 b
-d 0 vs. 0 c
+2 </br>
+manutd 8 vs. 2 arsenal </br>
+lyon 1 vs. 2 manutd </br>
+fcbarca 0 vs. 0 lyon </br>
+fcbarca 5 vs. 1 arsenal </br>
+manutd 3 vs. 1 fcbarca </br>
+arsenal 6 vs. 0 lyon </br>
+arsenal 0 vs. 0 manutd </br>
+manutd 4 vs. 2 lyon </br>
+arsenal 2 vs. 2 fcbarca </br>
+lyon 0 vs. 3 fcbarca </br>
+lyon 1 vs. 0 arsenal </br>
+fcbarca 0 vs. 1 manutd </br>
+a 3 vs. 0 b </br>
+a 0 vs. 0 c </br>
+a 0 vs. 0 d </br>
+b 0 vs. 0 a </br>
+b 4 vs. 0 c </br>
+b 0 vs. 0 d </br>
+c 0 vs. 0 a </br>
+c 0 vs. 0 b </br>
+c 1 vs. 0 d </br>
+d 3 vs. 0 a </br>
+d 0 vs. 0 b </br>
+d 0 vs. 0 c </br>
 
 ### Output
 
-manutd fcbarca
-d b
+manutd fcbarca </br>
+d b </br>
 
 
-## 💡 Explanation:
+## Explanation:
 
 ### Example case 1:
 
 The total number of points and goal difference for each team is as follows:
 
-- **manutd** : 16 points, goal difference 12  
-- **fcbarca** : 8 points, goal difference 4  
-- **arsenal** : 5 points, goal difference −5  
-- **lyon** : 4 points, goal difference −11  
+- `manutd` : 16 points, goal difference 12  
+- `fcbarca` : 8 points, goal difference 4  
+- `arsenal` : 5 points, goal difference −5  
+- `lyon` : 4 points, goal difference −11  
 
 ### Example case 2:
 
 The total number of points and goal difference for each team is as follows:
 
-- **d** : 7 points, goal difference 2  
-- **b** : 7 points, goal difference 1  
-- **a** : 7 points, goal difference 0  
-- **c** : 7 points, goal difference −3  
+- `d` : 7 points, goal difference 2  
+- `b` : 7 points, goal difference 1  
+- `a` : 7 points, goal difference 0  
+- `c` : 7 points, goal difference −3  
 
 Note that in this test case, all teams have the same number of points, but teams with higher goal difference are ranked higher.

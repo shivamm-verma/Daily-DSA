@@ -41,3 +41,4 @@ for _ in range(t):
         del p[w]
     
     print()
+    
