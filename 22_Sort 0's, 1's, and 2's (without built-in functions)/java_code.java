@@ -36,7 +36,7 @@ public class Solution {
         int[] arr = {0, 1, 2, 0, 1, 2};
 
         // Sort the array in-place using Dutch Flag Algorithm
-        mysortt(arr);
+        mysort(arr);
 
         // Print the sorted array
         for (int num : arr) {
