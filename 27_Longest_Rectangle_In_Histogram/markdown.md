@@ -62,7 +62,7 @@ Space Complexity
 O(n) — Stack is used to store indices.
 
 
-### Whats NSL/NSR (Concept Brief)
+### What's NSL/NSR (Concept Brief)
 
 This approach improves on brute force by explicitly computing boundaries for each bar — how far left and right the current bar can extend to form the largest rectangle **while all bars are at least as tall as it**.
 
