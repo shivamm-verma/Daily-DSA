@@ -2,7 +2,7 @@ name: Auto Comment on PR Merged
 
 on:
   pull_request_target:
-    types: [closed] 
+    types: [closed]
 
 permissions:
   issues: write
@@ -18,8 +18,13 @@ jobs:
         with:
           script: |
             const prNumber = context.issue.number;
-            const commentBody = `### 🎉 Congrats on getting your PR merged!🙌🏼\n\nThanks  for the contribution — every small chunk of contribution helps improve the project.\n\nLooking forward to your next contribution! 🥳✨`;
-            const labelsToAdd = ['PR Merged!🥳', 'GsSOC'];
+            const prAuthor = context.payload.pull_request.user.login;
+            const commentBody = `### 🎉 Congrats on getting your PR merged!🙌🏼\n\nThanks for the contribution — every small chunk of contribution helps improve the project.\n\nLooking forward to your next contribution! 🥳✨`;
+
+            const staticLabels = ['PR Merged!🥳', 'GsSOC'];
+            const levelLabels = ['Level-1', 'Level-2', 'Level-3'];
+            let labelsToAdd = [...staticLabels];
+
             try {
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
@@ -28,6 +33,37 @@ jobs:
                 body: commentBody
               });
 
+              const events = await github.rest.issues.listEventsForTimeline({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                per_page: 100,
+                mediaType: {
+                  previews: ['mockingbird']
+                }
+              });
+
+              for (const event of events.data) {
+                if (event.event === "connected" && event.source?.issue) {
+                  const linkedIssueNumber = event.source.issue.number;
+
+                  const issue = await github.rest.issues.get({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: linkedIssueNumber
+                  });
+
+                  const issueLabels = issue.data.labels.map(label => label.name);
+                  const foundLevelLabel = issueLabels.find(label => levelLabels.includes(label));
+
+                  if (foundLevelLabel) {
+                    labelsToAdd.push(foundLevelLabel);
+                  }
+
+                  break;
+                }
+              }
+
               await github.rest.issues.addLabels({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -35,8 +71,15 @@ jobs:
                 labels: labelsToAdd
               });
 
-              console.log('Successfully added comment to merged PR.');
+              await github.rest.issues.addAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                assignees: [prAuthor]
+              });
+
+              console.log('Successfully updated merged PR.');
             } catch (error) {
-              console.error('Failed to add comment to merged PR:', error);
-              core.setFailed(`Failed to add comment: ${error.message}`);
+              console.error('Failed to update merged PR:', error);
+              core.setFailed(`Failed to update merged PR: ${error.message}`);
             }
