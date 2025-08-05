@@ -16,17 +16,20 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
+            const { context } = require('@actions/github');
+
             const issueNumber = context.issue.number;
             const repoOwner = context.repo.owner;
             const repoName = context.repo.repo;
             const commentBody = context.payload.comment.body;
+            const commenter = context.actor;
 
-            // Extract level from comment (default to 2 if not specified)
+            // Extract level from comment (/startwork or /startwork 3)
             const match = commentBody.match(/^\/startwork\s*(\d)?/i);
-            const level = match && match[1] ? match[1] : '2'; // default Level-2
+            const level = match && match[1] ? match[1] : '2';
             const levelLabel = `Level-${level}`;
 
-            // Get issue to find the author
+            // Get issue info
             const issue = await github.rest.issues.get({
               owner: repoOwner,
               repo: repoName,
@@ -35,40 +38,43 @@ jobs:
 
             const issueAuthor = issue.data.user.login;
 
-            // Check permission (optional)
-            try {
-              const permission = await github.rest.repos.getCollaboratorPermissionLevel({
-                owner: repoOwner,
-                repo: repoName,
-                username: issueAuthor
-              });
+            // Check commenter permissions
+            const permission = await github.rest.repos.getCollaboratorPermissionLevel({
+              owner: repoOwner,
+              repo: repoName,
+              username: commenter
+            });
 
-              const userPermission = permission.data.permission;
-              const allowedPermissions = ['admin', 'maintain', 'write'];
+            const userPermission = permission.data.permission;
+            const allowedPermissions = ['admin', 'maintain', 'write'];
+            const isPROwner = context.payload.issue && context.payload.issue.pull_request && issueAuthor === commenter;
 
-              if (!allowedPermissions.includes(userPermission)) {
-                console.log(`User @${issueAuthor} is not a collaborator. Permission: ${userPermission}`);
-                return;
-              }
-
-              // Assign issue to author
-              await github.rest.issues.addAssignees({
+            if (!allowedPermissions.includes(userPermission) && !isPROwner) {
+              // Comment back if not allowed
+              await github.rest.issues.createComment({
                 owner: repoOwner,
                 repo: repoName,
                 issue_number: issueNumber,
-                assignees: [issueAuthor]
+                body: `❌ You are not a repo maintainer, you can't use the /startwork command.`
               });
-
-              // Add labels
-              await github.rest.issues.addLabels({
-                owner: repoOwner,
-                repo: repoName,
-                issue_number: issueNumber,
-                labels: [levelLabel, "GsSOC", "Start Working"]
-              });
-
-              console.log(`Assigned issue #${issueNumber} to @${issueAuthor} with label ${levelLabel}.`);
-
-            } catch (error) {
-              console.error(`Failed to process /startwork:`, error);
+              console.log(`@${commenter} is not allowed to trigger /startwork. Permission: ${userPermission}`);
+              return;
             }
+
+            // Assign issue to the author
+            await github.rest.issues.addAssignees({
+              owner: repoOwner,
+              repo: repoName,
+              issue_number: issueNumber,
+              assignees: [issueAuthor]
+            });
+
+            // Add labels
+            await github.rest.issues.addLabels({
+              owner: repoOwner,
+              repo: repoName,
+              issue_number: issueNumber,
+              labels: [levelLabel, "GsSOC", "Start Working"]
+            });
+
+            console.log(`Assigned issue #${issueNumber} to @${issueAuthor} with label ${levelLabel}.`);
