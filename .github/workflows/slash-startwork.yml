@@ -82,7 +82,7 @@ jobs:
               owner: repoOwner,
               repo: repoName,
               issue_number: issueNumber,
-              body: "### You can now Start Working on this issue!☺️\nThanks for the wait.🫡"
+              body: "You can now Start Working on this issue!☺️\nThanks for the wait."
             });
 
             console.log(`✅ Assigned issue #${issueNumber} to @${issueAuthor} with label ${levelLabel} and posted start message.`);
