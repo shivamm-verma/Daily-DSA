@@ -9,51 +9,65 @@ permissions:
 
 jobs:
   assign-and-label:
-    if: github.event.comment.body == '/startwork'
+    if: startsWith(github.event.comment.body, '/startwork')
     runs-on: ubuntu-latest
     steps:
-      - name: Assign issue and add labels
+      - name: Assign issue author and add labels
         uses: actions/github-script@v6
         with:
           script: |
             const issueNumber = context.issue.number;
             const repoOwner = context.repo.owner;
             const repoName = context.repo.repo;
-            const commentAuthor = context.payload.comment.user.login;
+            const commentBody = context.payload.comment.body;
 
-            // Check if user is a collaborator (i.e., has push access)
+            // Extract level from comment (default to 2 if not specified)
+            const match = commentBody.match(/^\/startwork\s*(\d)?/i);
+            const level = match && match[1] ? match[1] : '2'; // default Level-2
+            const levelLabel = `Level-${level}`;
+
+            // Get issue to find the author
+            const issue = await github.rest.issues.get({
+              owner: repoOwner,
+              repo: repoName,
+              issue_number: issueNumber
+            });
+
+            const issueAuthor = issue.data.user.login;
+
+            // Check permission (optional)
             try {
               const permission = await github.rest.repos.getCollaboratorPermissionLevel({
                 owner: repoOwner,
                 repo: repoName,
-                username: commentAuthor
+                username: issueAuthor
               });
 
               const userPermission = permission.data.permission;
               const allowedPermissions = ['admin', 'maintain', 'write'];
 
               if (!allowedPermissions.includes(userPermission)) {
-                console.log(`User @${commentAuthor} is not a collaborator. Permission: ${userPermission}`);
-                return; // Exit silently
+                console.log(`User @${issueAuthor} is not a collaborator. Permission: ${userPermission}`);
+                return;
               }
 
-              // Assign the issue to the comment author
+              // Assign issue to author
               await github.rest.issues.addAssignees({
                 owner: repoOwner,
                 repo: repoName,
                 issue_number: issueNumber,
-                assignees: [commentAuthor]
+                assignees: [issueAuthor]
               });
 
-              // Add labels to the issue
+              // Add labels
               await github.rest.issues.addLabels({
                 owner: repoOwner,
                 repo: repoName,
                 issue_number: issueNumber,
-                labels: ["Level-2", "GsSOC", "Start Working"]
+                labels: [levelLabel, "GsSOC", "Start Working"]
               });
 
-              console.log(`Issue #${issueNumber} assigned to @${commentAuthor} and labeled.`);
+              console.log(`Assigned issue #${issueNumber} to @${issueAuthor} with label ${levelLabel}.`);
 
             } catch (error) {
               console.error(`Failed to process /startwork:`, error);
