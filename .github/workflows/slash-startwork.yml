@@ -1,0 +1,60 @@
+name: Auto Assign on /startwork
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+
+jobs:
+  assign-and-label:
+    if: github.event.comment.body == '/startwork'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign issue and add labels
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueNumber = context.issue.number;
+            const repoOwner = context.repo.owner;
+            const repoName = context.repo.repo;
+            const commentAuthor = context.payload.comment.user.login;
+
+            // Check if user is a collaborator (i.e., has push access)
+            try {
+              const permission = await github.rest.repos.getCollaboratorPermissionLevel({
+                owner: repoOwner,
+                repo: repoName,
+                username: commentAuthor
+              });
+
+              const userPermission = permission.data.permission;
+              const allowedPermissions = ['admin', 'maintain', 'write'];
+
+              if (!allowedPermissions.includes(userPermission)) {
+                console.log(`User @${commentAuthor} is not a collaborator. Permission: ${userPermission}`);
+                return; // Exit silently
+              }
+
+              // Assign the issue to the comment author
+              await github.rest.issues.addAssignees({
+                owner: repoOwner,
+                repo: repoName,
+                issue_number: issueNumber,
+                assignees: [commentAuthor]
+              });
+
+              // Add labels to the issue
+              await github.rest.issues.addLabels({
+                owner: repoOwner,
+                repo: repoName,
+                issue_number: issueNumber,
+                labels: ["Level-2", "GsSOC", "Start Working"]
+              });
+
+              console.log(`Issue #${issueNumber} assigned to @${commentAuthor} and labeled.`);
+
+            } catch (error) {
+              console.error(`Failed to process /startwork:`, error);
+            }
