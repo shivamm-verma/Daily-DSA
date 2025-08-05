@@ -16,8 +16,6 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const { context } = require('@actions/github');
-
             const issueNumber = context.issue.number;
             const repoOwner = context.repo.owner;
             const repoName = context.repo.repo;
@@ -29,7 +27,7 @@ jobs:
             const level = match && match[1] ? match[1] : '2';
             const levelLabel = `Level-${level}`;
 
-            // Get issue info
+            // Get issue data
             const issue = await github.rest.issues.get({
               owner: repoOwner,
               repo: repoName,
@@ -38,7 +36,7 @@ jobs:
 
             const issueAuthor = issue.data.user.login;
 
-            // Check commenter permissions
+            // Get commenter permission level
             const permission = await github.rest.repos.getCollaboratorPermissionLevel({
               owner: repoOwner,
               repo: repoName,
@@ -47,21 +45,23 @@ jobs:
 
             const userPermission = permission.data.permission;
             const allowedPermissions = ['admin', 'maintain', 'write'];
-            const isPROwner = context.payload.issue && context.payload.issue.pull_request && issueAuthor === commenter;
+
+            // Check if it's a PR and commenter is PR owner
+            const isPROwner = issue.data.pull_request && issueAuthor === commenter;
 
             if (!allowedPermissions.includes(userPermission) && !isPROwner) {
-              // Comment back if not allowed
+              // Not allowed → post rejection comment
               await github.rest.issues.createComment({
                 owner: repoOwner,
                 repo: repoName,
                 issue_number: issueNumber,
                 body: `❌ You are not a repo maintainer, you can't use the /startwork command.`
               });
-              console.log(`@${commenter} is not allowed to trigger /startwork. Permission: ${userPermission}`);
+              console.log(`@${commenter} is not allowed. Permission: ${userPermission}`);
               return;
             }
 
-            // Assign issue to the author
+            // Assign issue to the original author
             await github.rest.issues.addAssignees({
               owner: repoOwner,
               repo: repoName,
@@ -77,4 +77,4 @@ jobs:
               labels: [levelLabel, "GsSOC", "Start Working"]
             });
 
-            console.log(`Assigned issue #${issueNumber} to @${issueAuthor} with label ${levelLabel}.`);
+            console.log(`✅ Assigned issue #${issueNumber} to @${issueAuthor} with label ${levelLabel}.`);
