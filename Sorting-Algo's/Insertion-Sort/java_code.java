@@ -33,7 +33,7 @@ public class SelectionSortExample {
             arr[i] = sc.nextInt();
         }
 
-        selection(arr, n);
+        insertion(arr, n);
 
         System.out.println("\nAfter sorting array :: ");
         for (int i = 0; i < n; i++) {
