@@ -77,4 +77,12 @@ jobs:
               labels: [levelLabel, "GsSOC", "Start Working"]
             });
 
-            console.log(`✅ Assigned issue #${issueNumber} to @${issueAuthor} with label ${levelLabel}.`);
+            // Create a new comment confirming assignment and labeling
+            await github.rest.issues.createComment({
+              owner: repoOwner,
+              repo: repoName,
+              issue_number: issueNumber,
+              body: "### You can now Start Working on this issue!☺️\nThanks for the wait.🫡"
+            });
+
+            console.log(`✅ Assigned issue #${issueNumber} to @${issueAuthor} with label ${levelLabel} and posted start message.`);
