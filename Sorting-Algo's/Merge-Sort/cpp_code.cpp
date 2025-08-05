@@ -73,7 +73,7 @@ void merge(vector<int>& arr, int low, int high)
 
 int main()
 {
-    int n=5;
+    int n;
     vector<int> arr;
 
     cout << "Enter the size of the array: ";
