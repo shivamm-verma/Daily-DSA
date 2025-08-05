@@ -57,7 +57,7 @@ void mergeSort(vector<int>& arr, int low, int mid, int high)
     - Sorts each half
     - Merges them using mergeSort()
 */
-void merge(vector<int> arr, int low, int high)
+void merge(vector<int>& arr, int low, int high)
 {
     if (low >= high)
         return;  
