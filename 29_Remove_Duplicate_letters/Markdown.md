@@ -18,7 +18,7 @@ Output: "acdb"
 ```
 
 ### Visual Step-by-Step for "bcabc"
-![Remove Duplicate Letters Animation](https://github.com/shivamm-verma/Daily-DSA/blob/main/29_Remove_Duplicate_letters/Explaination.gif)
+![Remove Duplicate Letters Animation](https://github.com/shivamm-verma/Daily-DSA/blob/main/29_Remove_Duplicate_letters/Explanation.gif)
 
 **Why "abc" and not "bca"?**
 - Both contain each letter exactly once
