@@ -9,7 +9,7 @@ using namespace std;
     - Second subarray: arr[mid+1 ... high]
     Merges both into a single sorted subarray.
 */
-void mergeSort(vector<int> arr, int low, int mid, int high)
+void mergeSort(vector<int>& arr, int low, int mid, int high)
 {
     vector<int> temp;    
     int left = low;   
