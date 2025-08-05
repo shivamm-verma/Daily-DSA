@@ -2,7 +2,7 @@
 
 ### Description
 Given the head of a linked list and an integer k, the task is to reverse the nodes of the list in groups of k.
-If the number of nodes remaining at the end of thelist is less than k, those nodes should be left in their original order.
+If the number of nodes remaining at the end of the list is less than k, those nodes should be left in their original order.
 
 Example:
     Input: `1 -> 2 -> 3 -> 4 -> 5`, k = 2
