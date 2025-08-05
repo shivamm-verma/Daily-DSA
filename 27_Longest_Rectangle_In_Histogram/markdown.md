@@ -8,7 +8,8 @@ Given an array of integers `heights` representing the histogram's bar height whe
 **Examples:**  
 - Input: `heights = [2,1,5,6,2,3]` → Output: `10`  
   
-> ![Histogram Example](image.png)
+> <img width="780" height="360" alt="image" src="https://github.com/user-attachments/assets/c0ffe9d9-b0cf-4873-ab92-64f9e207bc9d" />
+
 
    Explanation: The above is a histogram where width of each bar is 1.
    The largest rectangle is shown in the red area, which has an area = 10 units.
