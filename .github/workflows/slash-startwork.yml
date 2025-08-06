@@ -1,0 +1,88 @@
+name: Auto Assign on /startwork
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+
+jobs:
+  assign-and-label:
+    if: startsWith(github.event.comment.body, '/startwork')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign issue author and add labels
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueNumber = context.issue.number;
+            const repoOwner = context.repo.owner;
+            const repoName = context.repo.repo;
+            const commentBody = context.payload.comment.body;
+            const commenter = context.actor;
+
+            // Extract level from comment (/startwork or /startwork 3)
+            const match = commentBody.match(/^\/startwork\s*(\d)?/i);
+            const level = match && match[1] ? match[1] : '2';
+            const levelLabel = `Level-${level}`;
+
+            // Get issue data
+            const issue = await github.rest.issues.get({
+              owner: repoOwner,
+              repo: repoName,
+              issue_number: issueNumber
+            });
+
+            const issueAuthor = issue.data.user.login;
+
+            // Get commenter permission level
+            const permission = await github.rest.repos.getCollaboratorPermissionLevel({
+              owner: repoOwner,
+              repo: repoName,
+              username: commenter
+            });
+
+            const userPermission = permission.data.permission;
+            const allowedPermissions = ['admin', 'maintain', 'write'];
+
+            // Check if it's a PR and commenter is PR owner
+            const isPROwner = issue.data.pull_request && issueAuthor === commenter;
+
+            if (!allowedPermissions.includes(userPermission) && !isPROwner) {
+              // Not allowed → post rejection comment
+              await github.rest.issues.createComment({
+                owner: repoOwner,
+                repo: repoName,
+                issue_number: issueNumber,
+                body: `❌ You are not a repo maintainer, you can't use the /startwork command.`
+              });
+              console.log(`@${commenter} is not allowed. Permission: ${userPermission}`);
+              return;
+            }
+
+            // Assign issue to the original author
+            await github.rest.issues.addAssignees({
+              owner: repoOwner,
+              repo: repoName,
+              issue_number: issueNumber,
+              assignees: [issueAuthor]
+            });
+
+            // Add labels
+            await github.rest.issues.addLabels({
+              owner: repoOwner,
+              repo: repoName,
+              issue_number: issueNumber,
+              labels: [levelLabel, "GsSOC", "Start Working"]
+            });
+
+            // Create a new comment confirming assignment and labeling
+            await github.rest.issues.createComment({
+              owner: repoOwner,
+              repo: repoName,
+              issue_number: issueNumber,
+              body: "You can now Start Working on this issue!☺️\nThanks for the wait."
+            });
+
+            console.log(`✅ Assigned issue #${issueNumber} to @${issueAuthor} with label ${levelLabel} and posted start message.`);

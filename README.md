@@ -3,6 +3,7 @@
 <div align="center">
 <p>
 
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=shivamm-verma%2Fdaily-dsa&countColor=%23263759&style=flat)
 ![GitHub forks](https://img.shields.io/github/forks/shivamm-verma/daily-dsa)
