@@ -1,95 +1,93 @@
-🍎 Problem: Fruit Into Baskets
-📜 Problem Statement:
-You are visiting a farm that has a single row of fruit trees, represented by an integer array fruits, where fruits[i] is the type of fruit the i-th tree produces.
+## ✅ DSA Question: Fruit Into Baskets
+---
 
-You want to collect as much fruit as possible under the following conditions:
+### 🧠 Problem
+You are given an array fruits where each element represents the type of fruit a tree produces. You have two baskets, each of which can only hold one type of fruit, but with unlimited quantity.
+You must pick exactly one fruit per tree, starting from any tree and moving to the right, until you encounter a third type of fruit.
+Goal: Return the maximum number of fruits you can pick in this way.
 
-You have two baskets, each of which can only hold one type of fruit (but unlimited quantity).
+**Examples:**
+-Input: [1, 2, 1] → Output:3
+-Input: [0, 1, 2, 2] → Output:3
+-Input: [1, 2, 3, 2, 2] → Output:4
 
-You can start collecting from any tree and must pick exactly one fruit from each tree, moving only to the right.
+---
 
-You must stop once you encounter a third fruit type that doesn’t fit in your baskets.
+##🧭 Brute Force Approach
 
-🔍 Goal: Return the maximum number of fruits you can pick.
+1.Try starting from every tree (index i).
 
-📥 Example:
-Input: fruits = [1, 2, 3, 2, 2]
-Output: 4
-Explanation: We can pick [2, 3, 2, 2] — only 2 types of fruits, total of 4.
+2.From each starting point, move to the right collecting fruits.
 
-.
+3.Use a set or map to track the number of unique fruits in your baskets.
 
-🔒 Constraints:
-1 <= fruits.length <= 10⁵
+4.Stop when you encounter a third type of fruit.
 
-0 <= fruits[i] < fruits.length
+5.Track the maximum fruits collected for all possible starting points.
 
-🔴 Problem Summary:
-You're given an array of integers fruits representing fruit types.
-You're allowed 2 baskets, and can collect fruits from left to right, one per tree, until you encounter more than two types.
+---
+## 🔁 Generic Logic (Pseudocode)
+```plaintext
+function totalFruit(fruits):
+    maxFruits = 0
+    for i from 0 to n - 1:
+        create empty set basket
+        count = 0
+        for j from i to n - 1:
+            add fruits[j] to basket
+            if size of basket > 2:
+                break
+            count += 1
+        maxFruits = max(maxFruits, count)
+    return maxFruits
+    ```
+## ✅ Optimal Approach(Sliding Window)
 
-🎯 Objective: Return the maximum number of fruits that can be collected under these constraints.
+1.Use two pointers start and end to define a sliding window.
 
-🧠 Idea:
-Try every starting index and count how many fruits you can collect until a third fruit type is found.
+2.Use a hashmap to count the fruits in the current window.
 
-✅ Steps:
-Initialize maxFruits = 0
+3.Expand end to include new fruits.
 
-For every i from 0 to n-1:
+4.If the map has more than 2 fruit types, shrink the window by moving start forward.
 
-Use a set or map to track fruit types.
+5.Update the maximum size of a valid window.
 
-For every j from i to n-1:
+---
+##🔁 Optimal Logic(Pseudocode)
+```plaintext
+function totalFruit(fruits):
+    start = 0
+    maxFruits = 0
+    hashmap = empty map
+    for end from 0 to n - 1:
+        hashmap[fruits[end]] += 1
+        while size of hashmap > 2:
+            hashmap[fruits[start]] -= 1
+            if hashmap[fruits[start]] == 0:
+                remove fruits[start] from hashmap
+            start += 1
+        maxFruits = max(maxFruits, end - start + 1)
+    return maxFruits
+    ```
+## ⏱️Complexities
+Brute Force:
+>Time Complexity
+**O(n²)** — Checking all possible subarrays.
 
-Add fruits[j] to the set.
+>Space Complexity
+**O(1)** — Only a small set of fruit types (max 3).
 
-If set size > 2 → break
+Optimal(Sliding Window):
+>Time Complexity
+**O(n)** — Each fruit is added and removed from the map at most once.
 
-Else, update maxFruits = max(maxFruits, j - i + 1)
+>Space Complexity
+**O(1)** — Only up to 3 fruit types in the map.
 
-Return maxFruits
 
-⏱ Time Complexity:
-Outer loop: O(n)
 
-Inner loop: O(n)
 
-Overall: O(n²)
 
-📦 Space Complexity:
-O(1) (at most 3 fruit types in the set)
 
-✅ Optimal Approach: Sliding Window
-🧠 Idea:
-Use a sliding window (two-pointer technique) to maintain a valid window with at most 2 fruit types.
-
-✅ Steps:
-Initialize:
-
-start = 0, maxFruits = 0
-
-A map (or HashMap<Integer, Integer>) to count fruit types in the current window.
-
-Loop end from 0 to n-1:
-
-Add fruits[end] to the map and increase its count.
-
-While map.size() > 2:
-
-Decrease count of fruits[start]
-
-If count becomes 0, remove from map
-
-Move start++
-
-Update maxFruits = max(maxFruits, end - start + 1)
-
-Return maxFruits
-
-⏱ Time Complexity:
-O(n): Each element is added and removed from the map at most once.
-
-📦 Space Complexity:
-O(1): Maximum 3 fruit types in the map.
 
