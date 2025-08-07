@@ -19,10 +19,11 @@ Return the **maximum number of consecutive 1's** in the array after at most `k` 
 `6`
 
 **Explanation:**  
-Flip the 0's at index **3 and 4**.  
+Flip the 0's at index **5 and 10**.  
 The array becomes:  
-`[1,1,1,1,1,1,1,1,1,1,0]`  
-Which has **10 consecutive 1's** from index **0 to 9**.
+`[1,1,1,0,0,1,1,1,1,1,1]`  
+Which has **6 consecutive 1's** from index **5 to 10**.
+
 
 ---
 
