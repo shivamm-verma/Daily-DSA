@@ -1,6 +1,6 @@
 import java.util.*;
 
-class java code {
+class java_code {
      public static int uniquePaths(int i, int j) {
         if(i==0 && j==0) return 1;
         if(i<0||j<0) return 0;
