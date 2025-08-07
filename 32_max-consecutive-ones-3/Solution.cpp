@@ -16,6 +16,7 @@ public:
             while(i < n && zeros > k) {
                 if(nums[i] == 0) zeros--;
                 i++;
+                i++;
             }
 
             maxLen = std::max(maxLen, j - i);
