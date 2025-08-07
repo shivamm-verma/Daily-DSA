@@ -74,7 +74,7 @@ jobs:
               owner: repoOwner,
               repo: repoName,
               issue_number: issueNumber,
-              labels: [levelLabel, "GsSOC", "Start Working"]
+              labels: [levelLabel, "gssoc25", "Start Working"]
             });
 
             // Create a new comment confirming assignment and labeling
