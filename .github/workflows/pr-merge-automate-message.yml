@@ -1,0 +1,124 @@
+name: Auto Comment on PR Merged
+
+on:
+  pull_request_target:
+    types: [closed]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  comment:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Comment to Merged Pull Request
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const prNumber = context.issue.number;
+            const prAuthor = context.payload.pull_request.user.login;
+            const prBody = context.payload.pull_request.body || '';
+            const commentBody = `### 🎉 Congrats on getting your PR merged!🙌🏼\n\nThanks for the contribution — every small chunk of contribution helps improve the project.\n\nLooking forward to your next contribution! 🥳✨`;
+
+            const staticLabels = ['PR Merged!🥳', 'GsSOC'];
+            const levelLabels = ['Level-1', 'Level-2', 'Level-3'];
+            let labelsToAdd = [...staticLabels];
+
+            try {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: commentBody
+              });
+
+              const events = await github.rest.issues.listEventsForTimeline({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                per_page: 100,
+                mediaType: {
+                  previews: ['mockingbird']
+                }
+              });
+
+              let linkedIssueFound = false;
+
+              for (const event of events.data) {
+                if (event.event === "connected" && event.source?.issue) {
+                  const linkedIssueNumber = event.source.issue.number;
+                  console.log(`Found linked issue #${linkedIssueNumber} from timeline events`);
+
+                  const issue = await github.rest.issues.get({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: linkedIssueNumber
+                  });
+
+                  const issueLabels = issue.data.labels.map(label => label.name);
+                  console.log('Linked issue labels:', issueLabels);
+
+                  const foundLevelLabel = issueLabels.find(label => levelLabels.includes(label));
+
+                  if (foundLevelLabel) {
+                    console.log(`Found level label: ${foundLevelLabel}`);
+                    labelsToAdd.push(foundLevelLabel);
+                  } else {
+                    console.log('No level label found on linked issue.');
+                  }
+
+                  linkedIssueFound = true;
+                  break;
+                }
+              }
+
+              if (!linkedIssueFound) {
+                console.log('No linked issue found in timeline events, checking PR body for linked issues...');
+
+                const issueNumbers = [...prBody.matchAll(/(?:fixes|closes|resolves)\s+#(\d+)/gi)].map(m => m[1]);
+
+                for (const issueNum of issueNumbers) {
+                  console.log(`Checking linked issue #${issueNum} from PR body`);
+
+                  const issue = await github.rest.issues.get({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: Number(issueNum)
+                  });
+
+                  const issueLabels = issue.data.labels.map(label => label.name);
+                  console.log('Linked issue labels:', issueLabels);
+
+                  const foundLevelLabel = issueLabels.find(label => levelLabels.includes(label));
+
+                  if (foundLevelLabel) {
+                    console.log(`Found level label: ${foundLevelLabel}`);
+                    labelsToAdd.push(foundLevelLabel);
+                    break;
+                  } else {
+                    console.log('No level label found on linked issue.');
+                  }
+                }
+              }
+
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                labels: labelsToAdd
+              });
+
+              await github.rest.issues.addAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                assignees: [prAuthor]
+              });
+
+              console.log('Successfully updated merged PR.');
+            } catch (error) {
+              console.error('Failed to update merged PR:', error);
+              core.setFailed(`Failed to update merged PR: ${error.message}`);
+            }
