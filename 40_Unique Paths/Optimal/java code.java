@@ -1,6 +1,6 @@
 import java.util.*;
 
-class java code {
+class java_code {
      public static int uniquePaths(int m, int n) {
         int[][] dp=new int[m][n];
 
