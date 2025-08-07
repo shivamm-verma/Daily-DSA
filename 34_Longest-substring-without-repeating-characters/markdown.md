@@ -146,6 +146,3 @@ So max length remains 3.
 
 ---
 
-## 📌 Notes:
-
-- Works with ASCII and Unicode characters.
