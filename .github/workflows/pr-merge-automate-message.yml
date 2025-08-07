@@ -20,7 +20,7 @@ jobs:
             const prNumber = context.issue.number;
             const prAuthor = context.payload.pull_request.user.login;
             const prBody = context.payload.pull_request.body || '';
-            const commentBody = `### 🎉 Congrats on getting your PR merged!🙌🏼\n\nThanks for the contribution — every small chunk of contribution helps improve the project.\n\nLooking forward to your next contribution! 🥳✨`;
+            const commentBody = `### 🎉 Congrats on getting your PR merged!🙌🏼\n\nThanks for the contribution — every small chunk of contribution helps improve the project.\nLooking forward to your next contribution! 🥳✨\n\n![WellDone](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTJrb3p5aTJndGI1YTE4aXR1aWNnOTFnNTE3eWFkcHd6ZDVnbTEwdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8xUapU951fWEgB93Yl/giphy.gif)`;
 
             const staticLabels = ['PR Merged!🥳', 'gssoc25'];
             const levelLabels = ['Level-1', 'Level-2', 'Level-3'];
