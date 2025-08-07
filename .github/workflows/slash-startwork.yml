@@ -82,7 +82,7 @@ jobs:
               owner: repoOwner,
               repo: repoName,
               issue_number: issueNumber,
-              body: "You can now **start-working**✅ on this issue!☺️\nThanks for the wait.\n\n![TypingGirl](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjFqam5mY283djE1c2xnNHdwMmw1Z3JrdGpsemZ1eTJzZ2QzOTYzaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/11BbGyhVmk4iLS/giphy.gif)"
+              body: "You can now **start-working** on this issue!☺️✅\nThanks for the wait."
             });
 
             console.log(`✅ Assigned issue #${issueNumber} to @${issueAuthor} with label ${levelLabel} and posted start message.`);
