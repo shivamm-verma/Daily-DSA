@@ -12,7 +12,24 @@ $$
 $$
  
 ---
+## Example
 
+**Input:**  
+points = [[3,3], [5,-1], [-2,4]]
+k = 2
+
+**Output:**  
+[[3,3], [-2,4]]
+
+**Explanation:**  
+The squared distances to origin are:  
+- (3,3) → \(3^2 + 3^2 = 18\)  
+- (5,-1) → \(5^2 + (-1)^2 = 26\)  
+- (-2,4) → \((-2)^2 + 4^2 = 20\)  
+
+The two points with smallest distances are `[3,3]` and `[-2,4]`.
+
+---
 ## 1. Brute Force Solution (Sorting All Points)
 
 ### Approach
