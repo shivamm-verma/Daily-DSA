@@ -1,6 +1,6 @@
 import java.util.*;
 
-class java code {
+class java_code {
     public static int cutRod(int[] price) {
         int n=price.length;
         int[][] dp=new int[n][n+1];
