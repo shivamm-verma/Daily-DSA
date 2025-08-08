@@ -36,12 +36,10 @@ Here, **Levenshtein distance = 3**.
 ---
 
 ## Project Overview  
-This project implements the **Levenshtein Algorithm** using **three different approaches**, each developed in **three programming languages** for versatility and comparison.  
+This project implements the **Levenshtein Algorithm** using **recursive approaches**, developed in **three programming languages** for versatility and comparison.  
 
 ### Approaches  
 1. **Brute Force** – Simple recursive solution.  
-2. **Better Solution** – Dynamic Programming with full DP matrix.  
-3. **Optimal Solution** – Space-optimized Dynamic Programming.  
 
 ### Languages  
 1. **C++**  
@@ -80,3 +78,6 @@ This project implements the **Levenshtein Algorithm** using **three different ap
 - Function returns only the minimum edit distance and prints vector calculations.  
 
 ---
+
+
+The last two approaches are under DP folder, in the same project.
