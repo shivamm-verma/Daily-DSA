@@ -13,11 +13,7 @@ strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
 
 **Output:**  
 ```python
-[
-  ["eat", "tea", "ate"],
-  ["tan", "nat"],
-  ["bat"]
-]
+[["eat", "tea", "ate"],["tan", "nat"],["bat"]]
 
 ---
 
