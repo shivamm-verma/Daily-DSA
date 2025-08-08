@@ -1,52 +1,69 @@
-# 🔍 Find the Duplicate Number — Array Problem
+# 🔠 Group Anagrams — Multi-language Implementation
 
 ## 🧾 Problem Statement
-Given an array of `n` integers where each number is between `1` and `n - 1`, and exactly **one number is duplicated**, find and return the duplicate.
+Given an array of strings, group the anagrams together.  
+An anagram is a word formed by rearranging the letters of another, such as `"eat"` and `"tea"`.
 
 ---
 
 ## 🧠 Example
 
-**Input:**
-n = 5 nums = [1, 3, 4, 2, 2]
+**Input:**  
+strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
 
-**Output:**
-2
-
----
-
-## 🧩 Approach
-
-- Use a **set** or **hash structure** to track seen numbers.
-- Iterate through the array:
-  - If a number is already in the set, it's the duplicate.
-  - Otherwise, insert it into the set.
-- Return the duplicate when found.
+**Output:**  
+```python
+[
+  ["eat", "tea", "ate"],
+  ["tan", "nat"],
+  ["bat"]
+]
 
 ---
 
-## 📈 Time Complexity
-O(n)
+##🧩 Approach
+Use a hash map to group words by their sorted character sequence.
 
-- Single pass through the array
+For each string:
+
+Sort its characters alphabetically.
+
+Use the sorted string as a key in the map.
+
+Append the original string to the corresponding list.
+
+Return all grouped lists as the final result.
+
+---
+
+##📈 Time Complexity
+O(n × k log k)
+
+n = number of strings
+
+k = average length of each string
+
+Sorting each string takes O(k log k)
 
 ---
 
-## 🧠 Space Complexity
-O(n)
+##🧠 Space Complexity
+O(n × k)
 
-- For storing seen elements in a set or hash table
-
----
-
-## 📌 Topics Covered
-
-- Arrays  
-- Hashing  
-- Duplicate Detection  
-- Set/Map Usage
+For storing all strings in the hash map
 
 ---
+
+##📌 Topics Covered
+- Strings
+
+- Hashing
+
+- Sorting
+
+- Anagram Detection
+
+- Dictionary/Map Usage
 
 
 
