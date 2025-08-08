@@ -1,6 +1,6 @@
 import java.util.*;
 
-class java code {
+class java_code {
     public static int cutRod(int[] price,int ind,int n,int[][] dp) {
        if(ind==0) return n*price[0];
        if(dp[ind][n]!=-1) return dp[ind][n];
