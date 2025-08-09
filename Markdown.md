@@ -1,4 +1,4 @@
-# 🔠 Group Anagrams — Multi-language Implementation
+# 🔠 Group Anagrams 
 
 ## 🧾 Problem Statement
 Given an array of strings, group the anagrams together.  
