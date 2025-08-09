@@ -54,8 +54,6 @@ For storing all strings in the hash map
 - Strings
 - Hashing
 - Sorting
-- Anagram Detection
-- Dictionary/Map Usage
 
 
 
