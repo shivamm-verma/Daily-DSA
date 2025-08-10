@@ -40,7 +40,7 @@ int main() {
         for (const string& word : group) {
             cout << word << " ";
         }
-        cout << "]\n";
+        cout << "]";
     }
 
     return 0;

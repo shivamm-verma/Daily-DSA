@@ -40,7 +40,7 @@ Return result
 - Final grouping: `O(n)`
 
 **Overall:**  
-`O(n * k log k)` — where `n` is the number of words and `k` is the average word length
+`O(n * k log k)` — where `n` is the number of words and `k` is the average word len(length)
 
 ---
 
