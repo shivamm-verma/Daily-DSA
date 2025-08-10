@@ -28,8 +28,6 @@ Three comparison cases:
 3. Both pointers in second array `b[]`
 
 ---
-
-
 ## 📊 Complexity Analysis
 - **Time Complexity:** O((n + m) * log(n + m))  
   → Each pass processes `n + m` elements, gap reduces by ~half.

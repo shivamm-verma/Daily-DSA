@@ -31,6 +31,7 @@ void mergeArrays(vector<int>& a, vector<int>& b) {
             i++;
             j++;
         }
+        
 
         // After operating for gap of 1 break the loop
         if (gap == 1) break;

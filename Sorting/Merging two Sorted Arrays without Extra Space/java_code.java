@@ -18,6 +18,7 @@ class Solution{
                     a[j] = temp;
                 } 
               
+                
                 // If first pointer is in a[] and 
                 // the second pointer is in b[]
                 else if (i < n && j >= n && a[i] > b[j - n]) {
