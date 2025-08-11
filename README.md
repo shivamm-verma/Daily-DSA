@@ -18,7 +18,6 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/shivamm-verma/daily-dsa)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/shivamm-verma/daily-dsa)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/shivamm-verma/daily-dsa)
-![DSA Syllabus](assets/dsa_syllabus.png)
 <!-- [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0) -->
 </p>
 </div>
@@ -33,6 +32,12 @@
 ## What each folder has
 - Code (any programming languages like `C++`, `Java`, `Python`, `Go`, etc)
 - Markdown file (with Problem statement, generic code, complexities and other related information)
+
+## DSA Syllabus & Roadmap
+
+Here is a visual roadmap for learning Data Structures and Algorithms.
+
+![DSA Syllabus Flowmap](assets/WhatsApp Image 2025-08-11 at 16.15.59_9ad690cc.jpg)
 
 ## Welcome for `GsSOC'25` contribution
 What you can help  in building the **Daily DSA** –
