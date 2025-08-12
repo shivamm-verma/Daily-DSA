@@ -40,7 +40,11 @@ int main() {
         for (const string& word : group) {
             cout << word << " ";
         }
+<<<<<<< HEAD
         cout << "]\n";
+=======
+        cout << "]";
+>>>>>>> 25bcd466af18b3b64323a03cbd2d20735bd0c30b
     }
 
     return 0;

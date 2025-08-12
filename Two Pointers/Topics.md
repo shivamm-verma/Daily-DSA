@@ -3,3 +3,4 @@
 ## Topics covered
 - Multiple Arrays Merging
 - Three Sum Variations
+- 3Sum
