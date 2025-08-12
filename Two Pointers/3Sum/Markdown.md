@@ -83,7 +83,7 @@ Total: O(n^2)
 ## 🧮 Space Complexity
 O(1) extra space (excluding output list)
 
-Output space depends on number of valid triplets
+Output space depends on number of valid triplets.
 
 ---
 

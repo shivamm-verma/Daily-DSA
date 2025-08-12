@@ -27,6 +27,6 @@ if __name__ == "__main__":
     nums = list(map(int, raw_input.strip().split()))
     result = threeSum(nums)
     print("\nUnique triplets that sum to zero:")
-    for triplet in result:
-        print(triplet)
+    for triple in result:
+        print(triple)
     

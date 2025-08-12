@@ -40,7 +40,7 @@ public class ThreeSum {
         int[] nums = inputList.stream().mapToInt(i -> i).toArray();
         List<List<Integer>> result = threeSum(nums);
 
-        System.out.println("\nUnique triplets that sum to zero:");
+        System.out.println("\nUnique triplets that sum to zero :");
         for (List<Integer> triplet : result) {
             System.out.println(triplet);
         }

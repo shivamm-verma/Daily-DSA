@@ -22,5 +22,10 @@ if __name__ == "__main__":
     result = sol.groupAnagrams(words)
 
     print("\nGrouped Anagrams:")
+<<<<<<< HEAD
     for group in result:
         print(group)
+=======
+    for grp in result:
+        print(grp)
+>>>>>>> 25bcd466af18b3b64323a03cbd2d20735bd0c30b

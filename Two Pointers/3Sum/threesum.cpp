@@ -40,7 +40,7 @@ int main() {
     }
 
     vector<vector<int>> result = threeSum(nums);
-    cout << "\nUnique triplets that sum to zero:\n";
+    cout << "\nUnique triplets that sum to zero:\n ";
     for (const auto& triplet : result) {
         cout << "[" << triplet[0] << ", " << triplet[1] << ", " << triplet[2] << "]\n";
     }
