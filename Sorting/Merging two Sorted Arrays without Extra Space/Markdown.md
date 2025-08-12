@@ -3,15 +3,11 @@
 ## ✅ Problem Statement
 Given two sorted arrays `a[]` and `b[]` of sizes `n` and `m`, merge them in **ascending order** without using extra space so that both arrays remain sorted after merging.
 
----
-
 ## 🔍 Key Observations
 - Direct merging into a third array uses **O(n + m)** space – not allowed here.
 - Both arrays are **already sorted**.
 - We can treat the two arrays as a single sequence and rearrange in-place.
 - **Gap Method** (inspired by Shell Sort) is the optimal approach for this constraint.
-
----
 
 ## 💡 Algorithmic Strategy (Gap Method)
 
@@ -27,18 +23,15 @@ Three comparison cases:
 2. First in `a[]`, second in `b[]`
 3. Both pointers in second array `b[]`
 
----
-
 
 ## 📊 Complexity Analysis
 - **Time Complexity:** O((n + m) * log(n + m))  
   → Each pass processes `n + m` elements, gap reduces by ~half.
 - **Space Complexity:** O(1) – in-place merging, no extra array.
 
----
 
 ## 🧾 Pseudocode
-```plaintext
+
 function mergeArrays(a, b):
     n ← length(a)
     m ← length(b)

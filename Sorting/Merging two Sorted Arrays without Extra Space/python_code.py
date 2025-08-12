@@ -8,7 +8,6 @@ def mergeArrays(a, b):
         j = gap
 
         while j < n + m:
-          
             # If both pointers are in the first array a[]
             if j < n and a[i] > a[j]:
                 a[i], a[j] = a[j], a[i]
