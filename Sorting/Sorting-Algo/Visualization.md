@@ -31,3 +31,9 @@ Divide the array, sort subarrays, and merge them back together.
 ## Quick Sort
 [![Quick Sort](assets/sorting-gifs/quick.png)](assets/sorting-gifs/quick.gif)  
 Partition around a pivot, then recursively sort left/right parts.
+
+---
+
+## Heap Sort
+[![Heap Sort](assets/sorting-gifs/heap.png)](assets/sorting-gifs/heap.gif)  
+Build a max heap, then repeatedly extract the maximum element and heapify the remainder.
