@@ -1,14 +1,15 @@
 ## Bubble Sort
-![Bubble Sort](assets/sorting-gifs/bubble.gif)
-
+[![Bubble Sort](assets/sorting-gifs/bubble.png)](assets/sorting-gifs/bubble.gif)
 ## Selection Sort
-![Selection Sort](assets/sorting-gifs/selection.gif)
-
+[![Bubble Sort](assets/sorting-gifs/selection.png)](assets/sorting-gifs/selection.gif)
 ## Insertion Sort
-![Insertion Sort](assets/sorting-gifs/insertion.gif)
+[![Bubble Sort](assets/sorting-gifs/insertion.png)](assets/sorting-gifs/insertion.gif)
 
 ## Merge Sort
-![Merge Sort](assets/sorting-gifs/merge.gif)
+[![Bubble Sort](assets/sorting-gifs/merge.png)](assets/sorting-gifs/merge.gif)
 
 ## Quick Sort
-![Quick Sort](assets/sorting-gifs/quick.gif)
+[![Bubble Sort](assets/sorting-gifs/quick.png)](assets/sorting-gifs/quick.gif)
+
+## Heap Sort 
+[![Bubble Sort](assets/sorting-gifs/heap.png)](assets/sorting-gifs/heap.gif)
