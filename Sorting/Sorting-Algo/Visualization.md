@@ -34,5 +34,5 @@ Partition around a pivot, then recursively sort left/right parts.
 ---
 
 ## Heap Sort
-![Heap Sort] (assets/sorting-gifs/heap.gif)  
+![Heap Sort](assets/sorting-gifs/heap.gif)  
 Build a max heap, then repeatedly extract the maximum element and heapify the remainder.
