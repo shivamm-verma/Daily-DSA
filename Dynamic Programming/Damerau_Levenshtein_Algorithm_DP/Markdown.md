@@ -1,147 +1,71 @@
-# Damerau-Levenshtein Algorithm Showcase  
+# Damerau-Levenshtein Algorithm  
 
-## Introduction to Damerau-Levenshtein Distance  
+## Introduction  
 
-The **Damerau-Levenshtein distance** is a measure of similarity between two strings, defined as the minimum number of **insertions**, **deletions**, **substitutions**, and **transpositions** required to transform one string into the other. It extends the classic Levenshtein distance by adding the transposition operation, making it particularly effective for detecting common human typing errors.
-
-### Allowed Operations  
-- **Insertion**: Adding a character to string A  
-- **Deletion**: Removing a character from string A  
-- **Replacement**: Replacing a character in string A with another character  
-- **Transposition**: Swapping two adjacent characters in string A  
+The **Damerau-Levenshtein distance** measures similarity between two strings using four operations: **insertion**, **deletion**, **replacement**, and **transposition**. It extends Levenshtein by including transpositions, making it effective for detecting typing errors.  
 
 ### Example  
+- `"kitten" → "sitting"` → distance = 3  
+- `"martha" → "marhta"` → distance = 1 (vs. 2 in Levenshtein)  
 
-Transform `"kitten"` into `"sitting"` (all operations cost 1):  
-
-1. `kitten → sitten` (substitute `"s"` for `"k"`)  
-2. `sitten → sittin` (substitute `"i"` for `"e"`)  
-3. `sittin → sitting` (insert `"g"` at the end)  
-
-**Damerau-Levenshtein distance = 3**  
-
-**Transposition Example:**  
-
-Transform `"martha"` into `"marhta"`:  
-
-1. `martha → marhta` (transpose `"th"` to `"ht"`)  
-
-**Damerau-Levenshtein distance = 1** (Levenshtein distance = 2)  
-
-### Research Foundation
-
-According to Damerau's research, more than **80% of spelling errors** fall into one of these four operation categories, with transposition being a particularly frequent mistake.
-
-### Bounds  
-- **Lower bound**: `0` (identical strings)  
-- **Upper bound**: `max(m, n)` for strings of length `m` and `n`  
+### Properties  
+- **Bounds**: `0` to `max(m, n)`  
+- **Error coverage**: 80%+ of human spelling errors  
+- **Variants**:  
+  - OSA (restricted, no repeated edits)  
+  - True (unrestricted, metric)  
+- **Relations**:  
+  - Levenshtein ⊂ Damerau-Levenshtein  
+  - Hamming (equal-length only)  
+  - Jaro-Winkler (prefix/transposition focus)  
 
 ### Applications  
-- **Spell checkers** – Accurate correction suggestions (e.g., Microsoft Word, Google Docs)  
-- **Autocorrect algorithms** – Enhanced text prediction and correction  
-- **Data deduplication** – Identify similar records with transposition errors  
-- **DNA sequence analysis** – Detect genetic mutations and variations  
-- **Natural language processing** – Improved text similarity matching  
-
-### Algorithm Variants
-- **Optimal String Alignment (OSA)** – Simple, restricted (no substring edited more than once)  
-- **True Damerau-Levenshtein** – Unrestricted adjacent transpositions, maintains metric properties  
-
-### Relationship with Other Edit Distances  
-- **Levenshtein distance**: Subset without transposition  
-- **Hamming distance**: Only for equal-length strings, counts differing positions  
-- **Jaro-Winkler distance**: Focus on transpositions and prefix matching  
+Spell checkers, autocorrect, deduplication, DNA analysis, NLP  
 
 ---
 
 ## Project Overview  
 
-Implements **Damerau-Levenshtein Algorithm** in **two approaches** across **three languages** for comparison.
-
-### Approaches  
-1. **Better Solution** – DP with full DP matrix  
-2. **Optimal Solution** – Space-optimized DP  
-
-### Languages  
-1. **C++**  
-2. **Java**  
-3. **Python**  
+Two approaches, three languages (**C++, Java, Python**):  
+1. **Better** – DP matrix  
+2. **Optimal** – Space-optimized DP  
 
 ---
 
-## Brute Force Approach  
+## Brute Force  
 
-**Recursive Implementation:**  
-
-- **Function 1**: Minimum edit distance only  
-  - Time Complexity: `O(4^N)`  
-  - Space Complexity: `O(N)`  
-
-- **Function 2**: Minimum edit distance + operation sequence  
-  - Time Complexity: `O(4^N)`  
-  - Space Complexity: `O(N^2)`  
-
-**Details:**  
-- Detects transposition when `str1[i] == str2[j+1]` and `str1[i+1] == str2[j]`  
-- Advances indices by 2 if transposition applied  
-- Compares four operations to find minimum  
+- **Function 1**: distance only → `O(4^N)` time, `O(N)` space  
+- **Function 2**: distance + operations → `O(4^N)` time, `O(N^2)` space  
+- Detects transposition via character swaps, compares all four operations  
 
 ---
 
-## Better Approach – Minimum Weighted Edit Distance (DP Matrix)  
+## Better Approach – DP Matrix  
 
-**Dynamic Programming Implementation:**  
-
-- **Function 1**: Minimum edit distance  
-  - Time Complexity: `O(M*N)`  
-  - Space Complexity: `O(M*N)`  
-
-- **Function 2**: Minimum edit distance + operations  
-  - Time Complexity: `O(M*N)`  
-  - Space Complexity: `O(M*N)`  
-
-**Enhanced DP Matrix:**  
-- Tracks character positions for transpositions  
-- Checks diagonals two steps back for transposition  
-- Supports both OSA and unrestricted variants  
+- **Function 1**: distance → `O(M*N)` time, `O(M*N)` space  
+- **Function 2**: distance + ops → `O(M*N)` time, `O(M*N)` space  
+- Tracks character positions and diagonals for transpositions  
+- Supports OSA and unrestricted variants  
 
 ---
 
 ## Optimal Approach – Space Optimization  
 
-**DP Vector Implementation:**  
-- Maintains three vectors (`prev_prev`, `prev`, `curr`) for transposition support  
-- Time Complexity: `O(M*N)`  
-- Space Complexity: `O(3*min(M,N))`  
-- Returns minimum edit distance with detailed operation logging  
-
-**Features:**  
-- Automatic string swapping for optimal space  
-- Transposition detection with three-vector approach  
-- Step-by-step logging and detailed cost tracking  
-- Custom operation costs supported  
-
-**Transposition Handling:**  
-- Uses `prev_prev[i-2]` for transposition cost  
-- Vector shifting: `prev_prev ← prev ← curr`  
+- **Method**: three vectors (`prev_prev`, `prev`, `curr`)  
+- **Complexity**: `O(M*N)` time, `O(min(M,N))` space  
+- Features:  
+  - Auto string swap for efficiency  
+  - Transposition with `prev_prev[i-2]`  
+  - Vector shifting per iteration  
+  - Custom costs supported  
 
 ---
 
 ## Advanced Features  
 
-### Custom Operation Costs
-- Configurable for insert, delete, replace, transpose  
-- Uniform or individual cost modes  
-
-### Operation Tracking
-- Full transformation sequence  
-- Cost breakdown per operation  
-- Visual step-by-step logging  
-
-### Multi-Language Support
-- Consistent API across C++, Java, Python  
-- Feature parity and language-specific optimizations  
-- Space-efficient implementation  
+- **Custom Costs**: uniform or individual (insert, delete, replace, transpose)  
+- **Operation Tracking**: sequence, breakdown, visual logs  
+- **Multi-Language Support**: consistent API, feature parity, optimized per language  
 
 ---
 
