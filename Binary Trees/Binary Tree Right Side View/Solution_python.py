@@ -24,7 +24,14 @@ def rightSideView(root: Optional[TreeNode]) -> List[int]:
             if node.left:
                 q.append(node.left)
             level.append(node.val)
-        res.append(level[0])  # rightmost at this level
+        for i in range(size):
+            node = q.popleft()
+            if i == 0:
+                res.append(node.val)  # rightmost at this level
+            if node.right:
+                q.append(node.right)
+            if node.left:
+                q.append(node.left)
     
     return res
 
