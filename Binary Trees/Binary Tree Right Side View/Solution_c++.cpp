@@ -12,7 +12,7 @@ class TreeNode {
 vector<int> rightSideView(TreeNode* root) {
         vector<int>res;
         queue<TreeNode*>q;
-        if(root== nullptr) return{};
+        if (root == nullptr) return{};
         q.push(root);
         while(!q.empty()){
             int size = q.size();
