@@ -17,13 +17,6 @@ def rightSideView(root: Optional[TreeNode]) -> List[int]:
     while q:
         size = len(q)
         level = []
-        for _ in range(size):
-            node = q.popleft()
-            if node.right:
-                q.append(node.right)
-            if node.left:
-                q.append(node.left)
-            level.append(node.val)
         for i in range(size):
             node = q.popleft()
             if i == 0:
@@ -45,4 +38,4 @@ if __name__ == "__main__":
     root.right.right = TreeNode(5)
 
     result = rightSideView(root)
-    print(result)  # Output: [1, 3, 5]
+    print(result)  
