@@ -18,7 +18,7 @@ Input: s = "(]"
 Output: false
 
 ## 🧭 Approach  
-To determine if two strings are anagrams, we can use one of the following approaches:
+To determine if a string has valid parentheses, we can use the following approach:
 
 ### **Approach 1: Using Stack**  
 - Use a stack to store opening brackets.
