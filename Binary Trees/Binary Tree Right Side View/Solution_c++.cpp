@@ -22,14 +22,6 @@ vector<int> rightSideView(TreeNode* root) {
                 q.pop();
                 if(node->right) q.push(node->right);
                 if(node->left) q.push(node->left);
-                level.push_back(node->val);
-                
-            }
-            for(int i=0;i<size;i++){
-                TreeNode* node = q.front();
-                q.pop();
-                if(node->right) q.push(node->right);
-                if(node->left) q.push(node->left);
                 if(i == 0) res.push_back(node->val);
                 
             }
