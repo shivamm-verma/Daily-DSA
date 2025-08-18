@@ -21,14 +21,6 @@ class Solution {
 
             for (int i = 0; i < size; i++) {
                 TreeNode node = q.poll();
-                if (node.right != null) q.offer(node.right);
-                if (node.left != null) q.offer(node.left);
-                level.add(node.val);
-            }
-
-
-            for (int i = 0; i < size; i++) {
-                TreeNode node = q.poll();
                 if (i == 0) res.add(node.val); // first node at this level is rightmost
                 if (node.right != null) q.offer(node.right);
                 if (node.left != null) q.offer(node.left);
