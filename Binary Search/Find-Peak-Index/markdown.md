@@ -80,9 +80,9 @@ We need **Binary Search**! 🔥
 ## ⚡ Optimal Approach – Binary Search  
 
 Observation:  
-
+- if mid is peak one **return mid**
 - If `nums[mid] < nums[mid+1]`, then a peak **must exist on the right side**.  
-- Otherwise, if `nums[mid] > nums[mid+1]`, then a peak **must exist on the left side (including mid)**.  
+- Otherwise, if `nums[mid] > nums[mid+1]`, then a peak **must exist on the left side**.  
 
 This works because of the `-∞` boundary condition.  
 
