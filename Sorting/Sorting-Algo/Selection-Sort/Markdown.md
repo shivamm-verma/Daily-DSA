@@ -1,32 +1,41 @@
+# Selection Sort
 
-    ===================== Selection Sort =====================
+**Explanation:**
+Selection Sort repeatedly selects the smallest element from the unsorted portion of the array and swaps it with the first unsorted element.
 
-    What is Selection Sort?
-    ------------------------
-    Selection Sort is a simple comparison-based sorting algorithm.
-    It divides the array into two parts: the sorted part and the unsorted part.
+It is **generally unstable** (equal elements may change their relative order) and is an **in-place** algorithm, meaning it sorts the array directly without using extra memory.
 
-    How it Works:
-    --------------
-    - Start from the first element of the array.
-    - Find the smallest element in the unsorted part of the array.
-    - Swap it with the element at the beginning of the unsorted part.
-    - Move the boundary of the sorted part one step to the right.
-    - Repeat until the entire array is sorted.
+**Algorithm Approach:**
 
-    Time Complexity:
-    ----------------
-    - Best Case:    O(n²)
-    - Average Case: O(n²)
-    - Worst Case:   O(n²)
+1. Find the smallest element in the unsorted portion of the array.
+2. Swap it with the first unsorted element.
+3. Move the boundary of the sorted portion one element forward.
+4. Repeat until the array is fully sorted.
 
-    Space Complexity:
-    -----------------
-    - O(1) — In-place sorting, requires no extra space.
+**Pseudocode:**
 
-    Notes:
-    ------
-    - It is not a stable sort.
-    - It is an in-place sorting algorithm.
-    - Useful for small datasets or when memory write is more costly than read.
+```text
+for i = 0 to n-1:
+    min_idx = i
+    for j = i+1 to n-1:
+        if arr[j] < arr[min_idx]:
+            min_idx = j
+    swap(arr[i], arr[min_idx])
+```
+
+**Time Complexity:**
+
+* Best case: O(n²)
+* Average case: O(n²)
+* Worst case: O(n²)
+
+**Space Complexity:** O(1)
+
+**Key Concepts:**
+
+* **Unstable:** Relative order of equal elements may change.
+* **In-place:** Sorting is done directly in the original array without significant extra memory.
+
+**Example:**
+
 
