@@ -48,7 +48,4 @@ function partition(arr, low, high):
 
 **Example:**
 
-```text
-Input:  [3, 1, 2]
-Output: [1, 2, 3]
-```
+
