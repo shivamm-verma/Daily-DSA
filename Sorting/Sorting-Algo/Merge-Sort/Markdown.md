@@ -2,7 +2,9 @@
 # Merge Sort
 
 **Explanation:**
-Merge Sort is a divide-and-conquer algorithm that splits the array into halves, recursively sorts them, and then merges the sorted halves. It is a **stable** sorting algorithm but **not in-place** because it requires extra memory for merging.
+Merge Sort is a divide-and-conquer algorithm that splits the array into halves, recursively sorts them, and then merges the sorted halves. 
+
+It is a **stable** sorting algorithm but **not in-place** because it requires extra memory for merging.
 
 **Algorithm Approach:**
 
