@@ -36,6 +36,6 @@ for i = 0 to n-1:
 * **Unstable:** Relative order of equal elements may change.
 * **In-place:** Sorting is done directly in the original array without significant extra memory.
 
-**Example:**
+
 
 

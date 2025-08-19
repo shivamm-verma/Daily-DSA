@@ -47,6 +47,5 @@ function merge(left, right):
 * **Stable:** Equal elements retain their relative order.
 * **Not In-place:** Requires additional memory for merging.
 
-**Example:**
 
 

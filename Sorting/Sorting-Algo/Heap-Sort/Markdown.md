@@ -49,7 +49,7 @@ function heapify(arr, i, n):
 * **Not Stable:** Equal elements may change their relative order.
 * **In-place:** Sorting is done directly in the original array.
 
-**Example (Step-by-Step):**
+
 
 
 

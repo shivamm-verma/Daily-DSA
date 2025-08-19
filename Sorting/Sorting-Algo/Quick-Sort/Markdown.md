@@ -46,6 +46,5 @@ function partition(arr, low, high):
 * **Not Stable:** Equal elements may change their relative order.
 * **In-place:** Sorting is done directly in the original array without significant extra memory.
 
-**Example:**
 
 

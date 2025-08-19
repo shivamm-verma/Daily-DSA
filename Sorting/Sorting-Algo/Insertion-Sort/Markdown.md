@@ -34,5 +34,3 @@ for i = 1 to n-1:
 
 **Space Complexity:** O(1)
 
-**Example:**
-
