@@ -1,72 +1,56 @@
-import java.util.*;
+from collections import deque
 
-class Solution {
-    public int longestIncreasingPath(int[][] matrix) {
-        int m = matrix.length, n = matrix[0].length;
-        int[][] indegree = new int[m][n];
-        int[][] dp = new int[m][n];
+class Solution:
+    def longestIncreasingPath(self, matrix):
+        if not matrix or not matrix[0]:
+            return 0
 
-        int[] dx = {0, 0, -1, 1};
-        int[] dy = {-1, 1, 0, 0};
+        m, n = len(matrix), len(matrix[0])
+        indegree = [[0] * n for _ in range(m)]
+        dp = [[1] * n for _ in range(m)]  # every cell has at least length 1
 
-        // Calculate indegree for each cell
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                dp[i][j] = 1; // each cell has path length at least 1
-                for (int k = 0; k < 4; k++) {
-                    int nx = i + dx[k];
-                    int ny = j + dy[k];
-                    if (nx >= 0 && nx < m && ny >= 0 && ny < n &&
-                        matrix[nx][ny] < matrix[i][j]) {
-                        indegree[i][j]++;
-                    }
-                }
-            }
-        }
+        dx = [0, 0, -1, 1]
+        dy = [-1, 1, 0, 0]
 
-        Queue<int[]> q = new LinkedList<>();
-        // Add all cells with indegree 0
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (indegree[i][j] == 0) {
-                    q.offer(new int[]{i, j});
-                }
-            }
-        }
+        # calculate indegree for each cell
+        for i in range(m):
+            for j in range(n):
+                for k in range(4):
+                    nx, ny = i + dx[k], j + dy[k]
+                    if 0 <= nx < m and 0 <= ny < n and matrix[nx][ny] < matrix[i][j]:
+                        indegree[i][j] += 1
 
-        int maxLength = 1;
+        # queue initialization with indegree == 0
+        q = deque()
+        for i in range(m):
+            for j in range(n):
+                if indegree[i][j] == 0:
+                    q.append((i, j))
 
-        // Process in topological order
-        while (!q.isEmpty()) {
-            int[] cell = q.poll();
-            int x = cell[0], y = cell[1];
+        maxLength = 1
 
-            for (int k = 0; k < 4; k++) {
-                int nx = x + dx[k];
-                int ny = y + dy[k];
-                if (nx >= 0 && nx < m && ny >= 0 && ny < n &&
-                    matrix[nx][ny] > matrix[x][y]) {
-                    dp[nx][ny] = Math.max(dp[nx][ny], dp[x][y] + 1);
-                    maxLength = Math.max(maxLength, dp[nx][ny]);
-                    indegree[nx][ny]--;
-                    if (indegree[nx][ny] == 0) {
-                        q.offer(new int[]{nx, ny});
-                    }
-                }
-            }
-        }
+        # process topological order
+        while q:
+            x, y = q.popleft()
+            for k in range(4):
+                nx, ny = x + dx[k], y + dy[k]
+                if 0 <= nx < m and 0 <= ny < n and matrix[nx][ny] > matrix[x][y]:
+                    dp[nx][ny] = max(dp[nx][ny], dp[x][y] + 1)
+                    maxLength = max(maxLength, dp[nx][ny])
+                    indegree[nx][ny] -= 1
+                    if indegree[nx][ny] == 0:
+                        q.append((nx, ny))
 
-        return maxLength;
-    }
+        return maxLength
 
-    public static void main(String[] args) {
-        int[][] matrix = {
-            {9, 9, 4},
-            {6, 6, 8},
-            {2, 1, 1}
-        };
-        Solution sol = new Solution();
-        int result = sol.longestIncreasingPath(matrix);
-        System.out.println("Longest Increasing Path: " + result);
-    }
-}
+
+# Example usage
+if __name__ == "__main__":
+    matrix = [
+        [9, 9, 4],
+        [6, 6, 8],
+        [2, 1, 1]
+    ]
+    sol = Solution()
+    result = sol.longestIncreasingPath(matrix)
+    print("Longest Increasing Path:", result)
