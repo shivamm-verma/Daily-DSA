@@ -1,40 +1,50 @@
 
- Merge Sort - Explanation
-===============================================================================
+# Merge Sort
 
-Merge Sort is a **Divide and Conquer** sorting algorithm.
+**Explanation:**
+Merge Sort is a divide-and-conquer algorithm that splits the array into halves, recursively sorts them, and then merges the sorted halves. It is a **stable** sorting algorithm but **not in-place** because it requires extra memory for merging.
 
- How it Works:
-------------------
-1. **Divide**:
-   - Recursively split the array into two halves until each subarray has one element.
+**Algorithm Approach:**
 
-2. **Conquer**:
-   - Merge the sorted subarrays back together in a sorted manner.
+1. Divide the array into two halves.
+2. Recursively apply Merge Sort on both halves until each subarray has one element.
+3. Merge the two sorted halves into a single sorted array.
+4. Repeat until the entire array is sorted.
 
- Example:
------------
-Given: [4, 2, 5, 1, 3]
+**Pseudocode:**
 
-Step 1: Split until single elements:
-   [4, 2, 5] and [1, 3]
-   → [4, 2], [5], [1], [3]
-   → [4], [2], [5], [1], [3]
+```text
+function mergeSort(arr):
+    if length(arr) <= 1:
+        return arr
+    mid = length(arr) / 2
+    left = mergeSort(arr[0:mid])
+    right = mergeSort(arr[mid:])
+    return merge(left, right)
 
-Step 2: Merge sorted subarrays:
-   → [2, 4], [5], [1, 3]
-   → [2, 4, 5] and [1, 3]
-   → Final sorted: [1, 2, 3, 4, 5]
+function merge(left, right):
+    result = []
+    while left and right:
+        if left[0] <= right[0]:
+            result.append(left.pop(0))
+        else:
+            result.append(right.pop(0))
+    return result + left + right
+```
 
-⏱ Time Complexity:
---------------------
-- Best Case: O(n log n)
-- Average Case: O(n log n)
-- Worst Case: O(n log n)
+**Time Complexity:**
 
- Space Complexity:
----------------------
-- O(n): Due to use of temporary array during merge step
+* Best case: O(n log n)
+* Average case: O(n log n)
+* Worst case: O(n log n)
 
- Merge Sort is a **stable sort**: It preserves the order of equal elements.
+**Space Complexity:** O(n) (extra memory for merging)
+
+**Key Concepts:**
+
+* **Stable:** Equal elements retain their relative order.
+* **Not In-place:** Requires additional memory for merging.
+
+**Example:**
+
 
