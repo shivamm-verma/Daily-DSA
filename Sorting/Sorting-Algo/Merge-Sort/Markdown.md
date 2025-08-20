@@ -51,4 +51,4 @@ function merge(left, right):
 
 
 > Space Complexity
-**O(n)** (extra memory for merging)
+* **O(n)** (extra memory for merging)

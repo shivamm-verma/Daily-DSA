@@ -51,4 +51,4 @@ function heapify(arr, i, n):
 
 
 > Space Complexity
-**O(1)** —  in-place sorting, no extra arrays except recursion stack if recursive
+* **O(1)** —  in-place sorting, no extra arrays except recursion stack if recursive

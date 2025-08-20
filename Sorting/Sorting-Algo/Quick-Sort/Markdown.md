@@ -47,7 +47,7 @@ function partition(arr, low, high):
 
 
 > Space Complexity
- **O(log n)** (recursion stack)
+* **O(log n)** (recursion stack)
 
 
 

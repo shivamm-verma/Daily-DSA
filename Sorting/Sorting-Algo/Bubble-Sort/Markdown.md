@@ -39,6 +39,6 @@ for i = 0 to n-1:
 
 
 > Space Complexity
-**O(1)** — no extra space used 
+* **O(1)** — no extra space used 
 
 

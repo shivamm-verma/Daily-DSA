@@ -37,5 +37,50 @@ for i = 0 to n-1:
 * **In-place:** Sorting is done directly in the original array without significant extra memory.
 
 
+## ✅ DSA Question: Selection Sort
+
+---
+
+### 🧠 Problem  
+
+Selection Sort is a sorting algorithm that repeatedly selects the smallest element from the unsorted portion of the array and swaps it with the first unsorted element, gradually building the sorted portion.
+
+---
+
+## 🧭 Approach
+
+1. Find the smallest element in the unsorted portion of the array.  
+2. Swap it with the first unsorted element.  
+3. Move the boundary of the sorted portion one element forward.  
+4. Repeat until the array is fully sorted.  
+
+**Properties:**  
+- Generally unstable: relative order of equal elements may change.  
+- In-place: sorts the array directly without extra memory.  
+
+---
+
+## 🔁 Generic Logic (Pseudocode)
+```text
+for i = 0 to n-1:
+    min_idx = i
+    for j = i+1 to n-1:
+        if arr[j] < arr[min_idx]:
+            min_idx = j
+    swap(arr[i], arr[min_idx])
+```
+
+## ⏱️ Complexities
+ > Time Complexity
+* Best case: **O(n²)** 
+* Average case: **O(n²)**
+* Worst case: **O(n²)**
+
+
+> Space Complexity
+
+* **O(1)** — in-place sorting; no extra space used.
+
+
 
 
