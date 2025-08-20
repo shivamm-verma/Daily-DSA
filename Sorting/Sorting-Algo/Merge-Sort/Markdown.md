@@ -1,20 +1,27 @@
+## ✅ DSA Question: Merge Sort
 
-# Merge Sort
+---
 
-**Explanation:**
-Merge Sort is a divide-and-conquer algorithm that splits the array into halves, recursively sorts them, and then merges the sorted halves. 
+### 🧠 Problem  
 
-It is a **stable** sorting algorithm but **not in-place** because it requires extra memory for merging.
+Merge Sort is a divide-and-conquer sorting algorithm that splits an array into halves, recursively sorts them, and merges the sorted halves into a single sorted array.
 
-**Algorithm Approach:**
+---
 
-1. Divide the array into two halves.
-2. Recursively apply Merge Sort on both halves until each subarray has one element.
-3. Merge the two sorted halves into a single sorted array.
-4. Repeat until the entire array is sorted.
+## 🧭 Approach
 
-**Pseudocode:**
+1. Divide the array into two halves.  
+2. Recursively apply Merge Sort on both halves until each subarray has one element.  
+3. Merge the two sorted halves into a single sorted array.  
+4. Repeat until the entire array is sorted.  
 
+**Properties:**  
+- Stable: equal elements retain their relative order.  
+- Not in-place: requires extra memory for merging.  
+
+---
+
+## 🔁 Generic Logic (Pseudocode)
 ```text
 function mergeSort(arr):
     if length(arr) <= 1:
@@ -34,18 +41,14 @@ function merge(left, right):
     return result + left + right
 ```
 
-**Time Complexity:**
-
-* Best case: O(n log n)
-* Average case: O(n log n)
-* Worst case: O(n log n)
-
-**Space Complexity:** O(n) (extra memory for merging)
-
-**Key Concepts:**
-
-* **Stable:** Equal elements retain their relative order.
-* **Not In-place:** Requires additional memory for merging.
+## ⏱️ Complexities
+ > Time Complexity
 
 
+* Best case: **O(n log n)**
+* Average case: **O(n log n)**
+* Worst case: **O(n log n)**
 
+
+> Space Complexity
+**O(n)** (extra memory for merging)
