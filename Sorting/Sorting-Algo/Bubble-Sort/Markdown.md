@@ -1,23 +1,29 @@
+## ✅ DSA Question: Bubble Sort
 
-# Bubble Sort
+---
 
-**Explanation:**
-Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping adjacent elements, pushing the largest elements toward the end in each pass.
+### 🧠 Problem  
 
-It is a **stable** sorting algorithm, meaning that elements with the same value maintain their relative order. 
+Bubble Sort is a sorting algorithm that sorts a given array of numbers in ascending order by repeatedly swapping adjacent elements, pushing the largest elements toward the end in each pass.
 
-Bubble Sort is an **in-place** algorithm as it swaps elements directly without using any major data structure. 
+---
 
-**Algorithm Approach:**
-
-- Compare each pair of adjacent elements.
-- Swap them if they’re in the wrong order (larger before smaller).
-- After each pass, the largest unsorted element is moved to its correct position.
-- Repeat this for all elements (n-1 passes). 
+## 🧭 Approach
 
 
-**Pseudocode:**
+1. Compare each pair of adjacent elements in the array.  
+2. Swap them if the current element is larger than the next element.  
+3. After each pass, the largest unsorted element moves to its correct position.  
+4. Repeat for all elements (`n-1` passes).  
 
+**Properties:**  
+- Stable: preserves the relative order of equal elements.  
+- In-place: swaps elements directly without extra space.  
+
+
+---
+
+## 🔁 Generic Logic (Pseudocode)
 ```text
 for i = 0 to n-1:
     for j = 0 to n-i-2:
@@ -25,14 +31,14 @@ for i = 0 to n-1:
             swap(arr[j], arr[j+1])
 ```
 
-**Time Complexity:**
-
-* Best case: O(n) (array already sorted)
-* Average case: O(n²)
-* Worst case: O(n²)
-
-**Space Complexity:** O(1)
+## ⏱️ Complexities
+ > Time Complexity
+* Best case: **O(n)** (array already sorted)
+* Average case: **O(n²)**
+* Worst case: **O(n²)**
 
 
+> Space Complexity
+**O(1)** — no extra space used 
 
 
