@@ -1,20 +1,27 @@
+## ✅ DSA Question: Quick Sort
 
-# Quick Sort
+---
 
-**Explanation:**
-Quick Sort is a divide-and-conquer algorithm that selects a pivot, partitions the array into elements less than and greater than the pivot, and recursively sorts the partitions.
+### 🧠 Problem  
 
-It is **not stable** (equal elements may change their relative order) and **in-place**, as it rearranges elements directly in the array.
+Quick Sort is a divide-and-conquer sorting algorithm that selects a pivot element, partitions the array around the pivot such that elements less than the pivot come before it and elements greater come after, and then recursively sorts the partitions.
 
-**Algorithm Approach:**
+---
 
-1. Choose a pivot element (commonly the last element).
-2. Partition the array into two parts: elements smaller than the pivot and elements greater than the pivot.
-3. Recursively apply Quick Sort on both partitions with a **base condition**: if the start index is greater than or equal to the end index, return.
-4. Repeat until the array is fully sorted.
+## 🧭 Approach
 
-**Pseudocode:**
+1. Select a pivot element (commonly the last element in the array).  
+2. Partition the array so that elements less than the pivot are on the left, and elements greater than the pivot are on the right.  
+3. Recursively apply Quick Sort on the left and right partitions.  
+4. Repeat until the entire array is sorted.  
 
+**Properties:**  
+- Not stable: equal elements may change their relative order.  
+- In-place: sorts the array directly without extra space.  
+
+---
+
+## 🔁 Generic Logic (Pseudocode)
 ```text
 function quickSort(arr, low, high):
     if low < high:
@@ -26,25 +33,21 @@ function partition(arr, low, high):
     pivot = arr[high]
     i = low - 1
     for j = low to high-1:
-        if arr[j] < pivot:
+        if arr[j] <= pivot:
             i += 1
             swap(arr[i], arr[j])
     swap(arr[i+1], arr[high])
-    return i+1
+    return i + 1
 ```
+## ⏱️ Complexities
+ > Time Complexity
+* Best/Average case: **O(n log n)**
+* Worst case: **O(n²)**[occurs when the array is already sorted or reverse sorted and pivot choice is poor]
 
-**Time Complexity:**
-
-* Best/Average case: O(n log n)
-* Worst case: O(n²)[occurs when the array is already sorted or reverse sorted and pivot choice is poor]
 
 
-**Space Complexity:** O(log n) (recursion stack)
-
-**Key Concepts:**
-
-* **Not Stable:** Equal elements may change their relative order.
-* **In-place:** Sorting is done directly in the original array without significant extra memory.
+> Space Complexity
+ **O(log n)** (recursion stack)
 
 
 
