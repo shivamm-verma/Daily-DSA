@@ -1,19 +1,53 @@
+## ✅ DSA Question: Quick Sort
+
+---
+
+### 🧠 Problem  
+
+Quick Sort is a divide-and-conquer sorting algorithm that selects a pivot element, partitions the array around the pivot such that elements less than the pivot come before it and elements greater come after, and then recursively sorts the partitions.
+
+---
+
+## 🧭 Approach
+
+1. Select a pivot element (commonly the last element in the array).  
+2. Partition the array so that elements less than the pivot are on the left, and elements greater than the pivot are on the right.  
+3. Recursively apply Quick Sort on the left and right partitions.  
+4. Repeat until the entire array is sorted.  
+
+**Properties:**  
+- Not stable: equal elements may change their relative order.  
+- In-place: sorts the array directly without extra space.  
+
+---
+
+## 🔁 Generic Logic (Pseudocode)
+```text
+function quickSort(arr, low, high):
+    if low < high:
+        pi = partition(arr, low, high)
+        quickSort(arr, low, pi-1)
+        quickSort(arr, pi+1, high)
+
+function partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
+    for j = low to high-1:
+        if arr[j] <= pivot:
+            i += 1
+            swap(arr[i], arr[j])
+    swap(arr[i+1], arr[high])
+    return i + 1
+```
+## ⏱️ Complexities
+ > Time Complexity
+* Best/Average case: **O(n log n)**
+* Worst case: **O(n²)**[occurs when the array is already sorted or reverse sorted and pivot choice is poor]
 
 
-# QUICK SORT ALGORITHM
-    
-- Quick Sort is a **divide and conquer** algorithm.
 
-    Working:
-    - Pick an element as a "pivot" (in this implementation, we use the first element).
-    - Partition the array so that:
-        * Elements less than or equal to the pivot come before it.
-        * Elements greater than the pivot come after it.
-    - Recursively apply the same logic to the left and right subarrays.
+> Space Complexity
+* **O(log n)** (recursion stack)
 
-    Time Complexity:
-    - Best Case: O(n log n)
-    - Average Case: O(n log n)
-    - Worst Case: O(n^2) [occurs when the array is already sorted or reverse sorted and pivot choice is poor]
 
-    Space Complexity: O(log n) due to recursion stack
+

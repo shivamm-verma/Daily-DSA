@@ -3,3 +3,4 @@
 ## Topics covered
 - Monotonic Stack
 - Calculator with + - * / and Parentheses
+- Valid Parantheses
