@@ -1,17 +1,17 @@
 class Solution {
+    // Helper function to check palindrome
+    private boolean isPalindrome(String str, int l, int r) {
+        while (l < r) {
+            if (str.charAt(l) != str.charAt(r)) return false;
+            l++;
+            r--;
+        }
+        return true;
+    }
+
     public String longestPalindromeBrute(String s) {
         int n = s.length();
         String longest = "";
-
-        // Helper function to check palindrome
-        boolean isPalindrome(String str, int l, int r) {
-            while (l < r) {
-                if (str.charAt(l) != str.charAt(r)) return false;
-                l++;
-                r--;
-            }
-            return true;
-        }
 
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
