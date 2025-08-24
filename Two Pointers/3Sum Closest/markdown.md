@@ -1,13 +1,13 @@
-#🧮 Three Sum Closest
+# 🧮 Three Sum Closest
+
+## 📘 Problem Statement
+
+Given an array `nums` of `n` integers and an integer `target`, find three integers in `nums` such that the sum is closest to `target`. Return the sum of the three integers. You may assume that each input would have exactly one solution.
 
 ---
 
-##📘 Problem Statement
-Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
+## 🧠 Pseudo Code
 
----
-
-##🧠 Pseudo Code
 ```python
 function threeSumClosest(nums, target):
     sort nums
@@ -35,16 +35,17 @@ function threeSumClosest(nums, target):
 ---
 
 ##📊 Example
-Input:
 
-Code
+###Input:
 nums = [-1, 2, 1, -4]
 target = 1
-Output:
 
-Code
+###Output:
 2
-Explanation:
+
+---
+
+##Explanation:
 
 The possible triplets are:
 
@@ -72,38 +73,17 @@ If the exact target is found, return immediately.
 ---
 
 ##⏱️ Time Complexity
-Sorting: 
-𝑂
-(
-𝑛
-log
-⁡
-𝑛
-)
-
-Two-pointer traversal: 
-𝑂
-(
-𝑛
-2
-)
+𝑂(𝑛log⁡𝑛) for Sorting
+𝑂(𝑛^2) for Two-pointer traversal 
 
 Overall: 
-𝑂
-(
-𝑛
-2
-)
+𝑂(𝑛^2)
 
 ---
 
-###🧠 Space Complexity
+##🧠 Space Complexity
 Auxiliary space: 
-𝑂
-(
-1
-)
-
+𝑂(1)
 Sorting is done in-place and no extra space is used beyond variables.
 
 ---
