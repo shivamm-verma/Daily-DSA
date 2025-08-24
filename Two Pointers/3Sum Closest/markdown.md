@@ -62,6 +62,7 @@ The closest sum to target 1 is 2.
 ---
 
 ##🧩 Explanation
+
 First, sort the array to enable two-pointer traversal.
 
 Fix one element and use two pointers (j and k) to find the best pair that, along with the fixed element, gives the closest sum.
@@ -73,6 +74,7 @@ If the exact target is found, return immediately.
 ---
 
 ##⏱️ Time Complexity
+
 𝑂(𝑛log⁡𝑛) for Sorting
 𝑂(𝑛^2) for Two-pointer traversal 
 
@@ -82,6 +84,7 @@ Overall:
 ---
 
 ##🧠 Space Complexity
+
 Auxiliary space: 
 𝑂(1)
 Sorting is done in-place and no extra space is used beyond variables.
