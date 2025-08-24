@@ -1,60 +1,54 @@
-# Heap Sort
-
-Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure — typically a **Max Heap** for ascending order sorting.
+## ✅ DSA Question: Heap Sort
 
 ---
 
-##  How Heap Sort Works
+### 🧠 Problem  
 
-1. **Build a Max Heap** from the input data.
-2. **Swap the root (maximum element)** with the last element.
-3. **Reduce the heap size** and call `heapify()` on the root.
-4. **Repeat** step 2–3 until the heap is reduced to size 1.
+Heap Sort is a comparison-based sorting algorithm that sorts a given array of numbers in ascending order using a **binary heap** data structure — typically a **Max Heap**. It repeatedly extracts the maximum element from the heap and places it at the end of the array.
 
 ---
 
-##  Example
+## 🧭 Approach
 
-Given:  
-`arr = [4, 10, 3, 5, 1]`
+1. Build a Max Heap from the input array.  
+2. Swap the root (maximum element) with the last element in the heap.  
+3. Reduce the heap size by one and call `heapify()` on the root to maintain the heap property.  
+4. Repeat steps 2–3 until the heap size becomes 1.  
 
-### Step-by-Step:
-- Build Max Heap → `[10, 5, 3, 4, 1]`
-- Swap 10 and 1 → `[1, 5, 3, 4, 10]`  
-  → Heapify → `[5, 4, 3, 1, 10]`
-- Swap 5 and 1 → `[1, 4, 3, 5, 10]`  
-  → Heapify → `[4, 1, 3, 5, 10]`
-- Continue until sorted → `[1, 3, 4, 5, 10]`
+**Properties:**  
+- Not stable: equal elements may change their relative order.  
+- In-place: sorts the array directly without extra space (except recursion stack if recursive).  
 
 ---
 
-## ⏱️ Time Complexity
+## 🔁 Generic Logic (Pseudocode)
+```text
+function heapSort(arr):
+    buildMaxHeap(arr)
+    for i = n-1 downto 1:
+        swap(arr[0], arr[i])
+        heapify(arr, 0, i)
 
-| Case       | Time     |
-|------------|----------|
-| Best       | O(n log n) |
-| Average    | O(n log n) |
-| Worst      | O(n log n) |
+function heapify(arr, i, n):
+    largest = i
+    left = 2*i + 1
+    right = 2*i + 2
+    if left < n and arr[left] > arr[largest]:
+        largest = left
+    if right < n and arr[right] > arr[largest]:
+        largest = right
+    if largest != i:
+        swap(arr[i], arr[largest])
+        heapify(arr, largest, n)
+```
 
-- Each call to `heapify()` takes `O(log n)`.
-- Building the heap takes `O(n)`, and we perform `O(n)` heapify calls during sort.
-
----
-
-##  Space Complexity
-
-- **O(1)** (in-place sorting, no extra arrays except for recursion stack if not iterative).
-
----
-
-##  Is Heap Sort Stable?
-
->  **No**, Heap Sort is **not stable**.
-
-- Stability means **equal elements retain their relative order**.
-- Heap sort does not guarantee this, due to how elements are swapped during heap construction and sorting.
-
----
+## ⏱️ Complexities
+ > Time Complexity
+* Best case: **O(n log n)**
+* Average case: **O(n log n)**
+* Worst case: **O(n log n)**
+  Building the heap takes O(n), and each `heapify()` call is O(log n).
 
 
-
+> Space Complexity
+* **O(1)** —  in-place sorting, no extra arrays except recursion stack if recursive
