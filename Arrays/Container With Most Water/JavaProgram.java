@@ -1,4 +1,4 @@
-public class Solution {
+public class JavaProgram {
   public int maxArea(int[] height) {
         int left=0, right=height.length-1;
         int area=0, max=0;
@@ -17,3 +17,4 @@ public class Solution {
         return max;
     }
 }
+
