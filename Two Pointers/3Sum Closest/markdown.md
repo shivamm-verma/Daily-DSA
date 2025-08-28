@@ -34,46 +34,40 @@ function threeSumClosest(nums, target):
 ```
 ---
 
-##📊 Example
+## 📊 Example
 
-###Input:
+### Input:
 nums = [-1, 2, 1, -4]
 target = 1
 
-###Output:
+### Output:
 2
 
 ---
 
-##Explanation:
+## Explanation:
 
 The possible triplets are:
 
 (-1, 2, 1) → sum = 2
-
 (-1, 2, -4) → sum = -3
-
 (-1, 1, -4) → sum = -4
-
 (2, 1, -4) → sum = -1
 
 The closest sum to target 1 is 2.
 
 ---
 
-##🧩 Explanation
+## 🧩 Explanation
 
-First, sort the array to enable two-pointer traversal.
-
-Fix one element and use two pointers (j and k) to find the best pair that, along with the fixed element, gives the closest sum.
-
-Update the result whenever a closer sum is found.
-
-If the exact target is found, return immediately.
+- First, sort the array to enable two-pointer traversal.
+- Fix one element and use two pointers (j and k) to find the best pair that, along with the fixed element, gives the closest sum.
+- Update the result whenever a closer sum is found.
+- If the exact target is found, return immediately.
 
 ---
 
-##⏱️ Time Complexity
+## ⏱️ Time Complexity
 
 𝑂(𝑛log⁡𝑛) for Sorting
 𝑂(𝑛^2) for Two-pointer traversal 
@@ -83,7 +77,7 @@ Overall:
 
 ---
 
-##🧠 Space Complexity
+## 🧠 Space Complexity
 
 Auxiliary space: 
 𝑂(1)
