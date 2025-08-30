@@ -128,10 +128,11 @@ public:
         return mergeSort(arr, 0, arr.size() - 1);
     }
 };
+```
 
 
 ### Java Solution
-
+```Java
 class Solution {
     private long mergeSort(int[] arr, int l, int r) {
         if (l >= r) return 0;
@@ -164,10 +165,11 @@ class Solution {
         return mergeSort(arr, 0, arr.length - 1);
     }
 }
+```
 
 
-### Java Solution
-
+### Python Solution
+```Python
 class Solution:
     def merge_sort(self, arr, l, r):
         if l >= r:
@@ -201,3 +203,4 @@ class Solution:
 
     def inversionCount(self, arr):
         return self.merge_sort(arr, 0, len(arr) - 1)
+```
