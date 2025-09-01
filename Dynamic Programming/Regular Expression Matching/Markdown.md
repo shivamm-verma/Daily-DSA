@@ -13,7 +13,18 @@ The matching must cover the entire input string, not just a part of it.
 - Input: `s = "mississippi"`, `p = "mis*is*p*."` → Output: `false`
 ***
 ### 🤔 Approach 1: Brute Force (Recursive)
-A recursive function checks if `s[i:]` matches `p[j:]`. If the next pattern character is `*`, it explores two paths: matching zero instances of the element (advancing pattern by 2) or matching one instance (advancing text by 1). Otherwise, it checks for a direct character match.
+**Idea**
+
+-  Define a recursive function isMatch(i, j) that checks `s` from index `i` against `p` from index `j`.
+-  If the next pattern character is `*`, explore two possibilities:
+   -  Matching zero elements (by skipping ahead in the pattern).
+   -  Matching one element (by advancing in the string).
+-  If there's no `*`, proceed only if the current characters match.
+
+**Advantage**
+
+- Direct translation of the problem's logic.
+- The code structure is straightforward and easy to understand initially.
 
 #### 💻 Generic Logic (Pseudocode)
 ```
@@ -38,7 +49,16 @@ function isMatch(s, p, i, j):
 | **Space Complexity** | **$O(m+n)$** — due to the maximum depth of the recursion stack. |
 ***
 ### 🤔 Approach 2: Top-Down DP (Memoization)
-This approach optimizes the recursion by storing the results of each state `(i, j)` in a memoization table. Before re-computing a state, it first checks the table, avoiding redundant calculations for the same subproblems.
+**Idea**
+`
+- Optimize the recursive approach by caching results.
+- Use a memoization table (e.g., a 2D array) to store the outcomes of `isMatch(i, j)`.
+- Before computing a state, check if its result already exists in the table to avoid redundant work.
+
+**Advantage**
+
+- Drastically improves performance by eliminating repeated computations.
+- Maintains the readable, top-down structure of the recursive solution.
 
 #### 💻 Generic Logic (Pseudocode)
 ```
@@ -64,7 +84,16 @@ function isMatchMemo(s, p, i, j):
 | **Space Complexity** | **$O(m \times n)$** — For the memoization table, plus $O(m+n)$ for the recursion stack. |
 ***
 ### 🤔 Approach 3: Bottom-Up DP (Tabulation)
-An iterative approach using a 2D DP table where `dp[i][j]` is true if `s[:i]` matches `p[:j]`. The table is filled based on the pattern character: if it's `*`, the result depends on matching zero or more occurrences; otherwise, it depends on the previous diagonal state.
+**Idea**
+
+- Build the solution iteratively from the ground up.
+- Use a 2D DP table where `dp[i][j]` represents whether `s[:i]` matches `p[:j]`.
+- Fill the table by calculating each state `dp[i][j]` based on previously computed states.
+
+**Advantage**
+
+- Avoids recursion, preventing potential stack overflow errors on large inputs.
+- Typically has slightly better performance than memoization due to no recursion overhead.
 
 #### 💻 Generic Logic (Pseudocode)
 ```
@@ -97,9 +126,18 @@ function isMatchDP(s, p):
 | **Space Complexity** | **$O(m \times n)$** — To store the DP table. |
 ***
 ### 🤔 Approach 4: Space Optimized DP
-This optimizes the tabulation approach. Since calculating the current DP row only requires the previous row, we can reduce space from a 2D table to two 1D arrays, significantly lowering memory usage.
+**Idea**
+
+- Optimize the space usage of the tabulation approach.
+- Recognize that computing the current row of the DP table only requires the previous row.
+- Use two 1D arrays (or even one) to store only the necessary states, instead of the full 2D table.
+
+**Advantage**
+
+- Provides the most memory-efficient solution.
+-  Crucial for problems with very large input strings where an `O(m * n)` table would be too big
 
 #### ⚙️ Complexities
 | Time Complexity | $O(m \times n)$ — The number of computations remains the same as the tabulation method. |
 | :--- | :--- |
-| **Space Complexity** | **$O(n)$** — We only need two arrays of size `n+1` to store the DP states for the previous and current rows. |
+| **Space Complexity** | **$O(n)$** — We only need two arrays of size `n+1` to store the DP states for the previous and `current rows. |
