@@ -13,12 +13,7 @@ The matching must cover the entire input string, not just a part of it.
 - Input: `s = "mississippi"`, `p = "mis*is*p*."` → Output: `false`
 ***
 ### 🤔 Approach 1: Brute Force (Recursive)
-1.  Define a recursive function, let's say `isMatch(text_index, pattern_index)`, to check if the substring of `s` from `text_index` and the sub-pattern of `p` from `pattern_index` match.
-2.  **Handle the `*` character**: If the next character in the pattern is `*`, we have two choices:
-    - Ignore this part of the pattern (`*` matches zero elements) and move two steps forward in the pattern: `isMatch(text_index, pattern_index + 2)`.
-    - If the current characters match, use the `*` to match one character in the text and stay at the same pattern position: `isMatch(text_index + 1, pattern_index)`.
-3.  **Handle a normal match**: If the next character is not `*`, the current characters in the string and pattern must match, and we advance both by one: `isMatch(text_index + 1, pattern_index + 1)`.
-4.  The base case for the recursion is when the pattern is exhausted. The match is successful only if the text is also fully exhausted.
+A recursive function checks if `s[i:]` matches `p[j:]`. If the next pattern character is `*`, it explores two paths: matching zero instances of the element (advancing pattern by 2) or matching one instance (advancing text by 1). Otherwise, it checks for a direct character match.
 
 #### 💻 Generic Logic (Pseudocode)
 ```
@@ -43,9 +38,7 @@ function isMatch(s, p, i, j):
 | **Space Complexity** | **$O(m+n)$** — due to the maximum depth of the recursion stack. |
 ***
 ### 🤔 Approach 2: Top-Down DP (Memoization)
-1.  The recursive approach is slow because it re-computes the same states (i.e., the same `i` and `j` values) multiple times.
-2.  We can optimize this by storing the result of each state `(i, j)` in a 2D memoization table, `memo[i][j]`.
-3.  Before computing `isMatch(i, j)`, we first check if the result is already stored in `memo[i][j]`. If it is, we return it directly, avoiding redundant computations.
+This approach optimizes the recursion by storing the results of each state `(i, j)` in a memoization table. Before re-computing a state, it first checks the table, avoiding redundant calculations for the same subproblems.
 
 #### 💻 Generic Logic (Pseudocode)
 ```
@@ -71,13 +64,7 @@ function isMatchMemo(s, p, i, j):
 | **Space Complexity** | **$O(m \times n)$** — For the memoization table, plus $O(m+n)$ for the recursion stack. |
 ***
 ### 🤔 Approach 3: Bottom-Up DP (Tabulation)
-1.  Create a 2D DP table, `dp[m+1][n+1]`, where `dp[i][j]` is `true` if the first `i` characters of `s` match the first `j` characters of `p`.
-2.  Initialize `dp[0][0] = true` (empty string matches empty pattern). Also, handle cases where a pattern like `a*b*c*` can match an empty string.
-3.  Iterate through the `s` and `p`, filling the table based on the following rules for `dp[i][j]`:
-    - If `p[j-1]` is a normal character or `.`: `dp[i][j]` is true only if `s[i-1]` matches `p[j-1]` AND `dp[i-1][j-1]` was true.
-    - If `p[j-1]` is `*`:
-      - It can match zero elements, so we check `dp[i][j-2]`.
-      - If the preceding character `p[j-2]` matches `s[i-1]`, it can also match one or more elements, so we check `dp[i-1][j]`.
+An iterative approach using a 2D DP table where `dp[i][j]` is true if `s[:i]` matches `p[:j]`. The table is filled based on the pattern character: if it's `*`, the result depends on matching zero or more occurrences; otherwise, it depends on the previous diagonal state.
 
 #### 💻 Generic Logic (Pseudocode)
 ```
@@ -110,9 +97,7 @@ function isMatchDP(s, p):
 | **Space Complexity** | **$O(m \times n)$** — To store the DP table. |
 ***
 ### 🤔 Approach 4: Space Optimized DP
-1.  Observe that to compute the current row `dp[i]`, we only need the values from the previous row `dp[i-1]`.
-2.  This allows us to optimize the space complexity by using only two 1D arrays (`previous_row` and `current_row`), each of size `n+1`, instead of a full 2D table.
-3.  In each outer loop iteration (for each character in `s`), we calculate `current_row` using the values from `previous_row`. At the end of the loop, `previous_row` is updated to `current_row`.
+This optimizes the tabulation approach. Since calculating the current DP row only requires the previous row, we can reduce space from a 2D table to two 1D arrays, significantly lowering memory usage.
 
 #### ⚙️ Complexities
 | Time Complexity | $O(m \times n)$ — The number of computations remains the same as the tabulation method. |
