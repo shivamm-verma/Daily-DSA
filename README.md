@@ -16,7 +16,7 @@
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/shivamm-verma/daily-dsa)
 ![GitHub last commit](https://img.shields.io/github/last-commit/shivamm-verma/daily-dsa)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/shivamm-verma/daily-dsa)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/shivamm-verma/daily-dsa)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/shivamm-verma/daily-dsa)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/shivamm-verma/daily-dsa)
 
 <!-- [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0) -->
