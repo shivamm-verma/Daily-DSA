@@ -26,5 +26,6 @@ public class Main {
         String s = sc.next();
         String t = sc.next();
         System.out.println(isIsomorphic(s, t) ? "true" : "false");
+        sc.close();
     }
 }
