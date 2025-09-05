@@ -1,5 +1,5 @@
 import java.util.*;
-public class MinimumCoins {
+public class CoinChangeJava {
     public static int minCoins(int[] coins, int X) {
         int n = coins.length;
         int[] dp = new int[X + 1];
@@ -30,4 +30,3 @@ public class MinimumCoins {
         System.out.println("Minimum coins required: " + result);
     }
 }
-
