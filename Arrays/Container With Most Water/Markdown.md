@@ -39,7 +39,20 @@ Return the **maximum area** of water the container can store.
 
 ---
 
-## 🐢 Approach (Two-Pointer Technique)
+## 🐌 Approach 1: Brute Force
+
+### 💡 Idea
+- Try every possible pair (i, j) and calculate area.
+- Keep track of the maximum area.
+- Not efficient for large arrays.
+
+### ⏱️ Complexities
+- **Time Complexity:** O(n²) — nested loops check all pairs
+- **Space Complexity:** O(1) — only constant extra space used
+
+---
+
+## 🚀 Approach 2: Two-Pointer Technique (Optimal)
 
 ### 💡 Idea
 Use two pointers — one at the start and one at the end of the array — and move them inward to find the maximum area:  
@@ -50,8 +63,6 @@ Use two pointers — one at the start and one at the end of the array — and mo
 - Repeat until the pointers meet.  
 - Keep track of the **maximum area** found.
 
----
-
 ### 🔁 Steps
 1. Initialize `left = 0`, `right = height.length - 1`, `max = 0`.  
 2. While `left < right`:  
@@ -61,9 +72,8 @@ Use two pointers — one at the start and one at the end of the array — and mo
     - Else, decrement `right`.  
 3. Return `max`.
 
----
 
-### 📜 Pseudocode (Matching Java Solution)
+### 📜 Pseudocode
 ```text
 function maxArea(height):
     left = 0
@@ -80,14 +90,19 @@ function maxArea(height):
             right -= 1
 
     return max
+```
 
-**⏱️ Complexities***
+### ⏱️ Complexities
+- **Time Complexity:** O(n) — each pointer moves at most n steps
+- **Space Complexity:** O(1) — only constant extra space used
 
-Time Complexity: O(n) — each pointer moves at most n steps.
-Space Complexity: O(1) — only constant extra space used.
+---
 
-**🧪 Edge Cases**
+## 🧪 Edge Cases
 
-Array of size 2 → returns min(height[0], height[1]).
-Heights containing zeros → area can be zero.
-Large arrays (up to 10^5 elements) handled efficiently with two pointers.
+- **Array of size 2** → returns `min(height[0], height[1]) * 1`
+- **Heights containing zeros** → area can be zero
+- **Large arrays** (up to 10⁵ elements) handled efficiently with two pointers
+
+---
+
