@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily DSA - Data Structures & Algorithms</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <h1>Daily DSA</h1>
+            </div>
+            <p class="subtitle">Master Data Structures & Algorithms</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="search-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search problems, topics, or algorithms...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Topics</button>
+                    <button class="filter-btn" data-filter="arrays">Arrays</button>
+                    <button class="filter-btn" data-filter="binary">Binary Search</button>
+                    <button class="filter-btn" data-filter="trees">Binary Trees</button>
+                    <button class="filter-btn" data-filter="dp">Dynamic Programming</button>
+                    <button class="filter-btn" data-filter="graphs">Graphs</button>
+                    <button class="filter-btn" data-filter="strings">Strings</button>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-card">
+                    <i class="fas fa-folder"></i>
+                    <h3 id="totalTopics">0</h3>
+                    <p>Topics</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-code"></i>
+                    <h3 id="totalProblems">0</h3>
+                    <p>Problems</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-language"></i>
+                    <h3>3</h3>
+                    <p>Languages</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>100+</h3>
+                    <p>Contributors</p>
+                </div>
+            </div>
+
+            <div class="topics-grid" id="topicsGrid">
+                <!-- Topics will be loaded dynamically -->
+            </div>
+
+            <div class="loading" id="loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading DSA problems...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Daily DSA. Made with ❤️ for GsSOC'25</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Problem Modal -->
+    <div id="problemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Topic Problems</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="problemsList" class="problems-grid">
+                    <!-- Problems will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
