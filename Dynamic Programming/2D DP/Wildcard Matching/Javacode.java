@@ -1,5 +1,5 @@
 import java.util.*;
-public class WildcardMatching {
+public class Javacode {
     public static boolean isMatch(String s, String p) {
         int n = s.length(), m = p.length();
         boolean[][] dp = new boolean[n + 1][m + 1];
