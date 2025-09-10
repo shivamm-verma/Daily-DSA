@@ -1,5 +1,5 @@
 import java.util.*;
-public class Javacode {
+public class JavaCode {
     public static boolean isMatch(String s, String p) {
         int n = s.length(), m = p.length();
         boolean[][] dp = new boolean[n + 1][m + 1];
