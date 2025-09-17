@@ -47,3 +47,44 @@ trust[i].length == 2
 All the pairs of trust are unique.
 ai != bi
 1 <= ai, bi <= n
+
+## 🔹 Pattern Identification
+This problem is a **Graph / Indegree-Outdegree Problem**.
+- Think of people as **nodes** in a graph.
+- A trust relationship `a -> b` means a **directed edge** from `a` to `b`.
+
+👉 To find the judge:
+- Judge’s **outdegree = 0** (they trust nobody).
+- Judge’s **indegree = n - 1** (everybody else trusts them).
+
+This is the **indegree-outdegree difference pattern** often used in:
+- **Celebrity Problem**
+- **Graph Center / Universal Sink Problems**
+
+---
+
+## 🔹 Approach to Solve
+1. Create two arrays:
+    - `outdegree[i]` → how many people person `i` trusts.
+    - `indegree[i]` → how many people trust person `i`.
+
+2. Traverse the `trust` list:
+    - For each pair `(a, b)` →
+        - Increment `outdegree[a]`
+        - Increment `indegree[b]`
+
+3. After processing, check each person `i`:
+    - If `outdegree[i] == 0` **and** `indegree[i] == n - 1` → `i` is the judge.
+
+4. If no such person exists → return `-1`.
+
+---
+
+## 🔹 Time and Space Complexity
+- **Time:** `O(n + trust.length)`
+- **Space:** `O(n)`
+
+---
+
+✅ This is a **Graph Degree Checking** pattern.  
+Memorize it as: **“Judge/Celebrity → Outdegree = 0, Indegree = n-1.”**

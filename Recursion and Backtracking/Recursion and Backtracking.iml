@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/BurstBalloon" isTestSource="false" packagePrefix="Recursion" />
+      <sourceFolder url="file://$MODULE_DIR$/Find all subsets for a given set of integers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Letter_Combination_of_a_phone_number" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Levenshtein_Algorithm_Recursion" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

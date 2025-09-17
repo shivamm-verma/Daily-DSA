@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Dynamic Programming/1D DP/1D DP.iml" filepath="$PROJECT_DIR$/Dynamic Programming/1D DP/1D DP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Binary Search/Aggressive-Cows/Aggressive-Cows.iml" filepath="$PROJECT_DIR$/Binary Search/Aggressive-Cows/Aggressive-Cows.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Arrays/Arrays.iml" filepath="$PROJECT_DIR$/Arrays/Arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Binary Search/Binary Search.iml" filepath="$PROJECT_DIR$/Binary Search/Binary Search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Binary Trees/Binary Trees.iml" filepath="$PROJECT_DIR$/Binary Trees/Binary Trees.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bit Manipulation/Bit Manipulation.iml" filepath="$PROJECT_DIR$/Bit Manipulation/Bit Manipulation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dynamic Programming/1D DP/ClimbingStairs/ClimbingStairs.iml" filepath="$PROJECT_DIR$/Dynamic Programming/1D DP/ClimbingStairs/ClimbingStairs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dynamic Programming/1D DP/Climbing_Stairs/Climbing_Stairs.iml" filepath="$PROJECT_DIR$/Dynamic Programming/1D DP/Climbing_Stairs/Climbing_Stairs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Arrays/Container With Most Water/Container With Most Water.iml" filepath="$PROJECT_DIR$/Arrays/Container With Most Water/Container With Most Water.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dynamic Programming/DP on Grids/DP on Grids.iml" filepath="$PROJECT_DIR$/Dynamic Programming/DP on Grids/DP on Grids.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Daily-DSA.iml" filepath="$PROJECT_DIR$/.idea/Daily-DSA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Graphs/Dijkstra_Algorithm/Dijkstra_Algorithm.iml" filepath="$PROJECT_DIR$/Graphs/Dijkstra_Algorithm/Dijkstra_Algorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Graphs/Find the City With the Smallest Number of Neighbors at a Threshold Distance/Find the City With the Smallest Number of Neighbors at a Threshold Distance.iml" filepath="$PROJECT_DIR$/Graphs/Find the City With the Smallest Number of Neighbors at a Threshold Distance/Find the City With the Smallest Number of Neighbors at a Threshold Distance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Graphs/Graphs.iml" filepath="$PROJECT_DIR$/Graphs/Graphs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Greedy/Greedy.iml" filepath="$PROJECT_DIR$/Greedy/Greedy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Hashing/Hashing.iml" filepath="$PROJECT_DIR$/Hashing/Hashing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Heap/Heap.iml" filepath="$PROJECT_DIR$/Heap/Heap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Arrays/Kadane_Algorithm/Kadane_Algorithm.iml" filepath="$PROJECT_DIR$/Arrays/Kadane_Algorithm/Kadane_Algorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dynamic Programming/DP on Subsequences/Knapsack with Duplicate Items/Knapsack with Duplicate Items.iml" filepath="$PROJECT_DIR$/Dynamic Programming/DP on Subsequences/Knapsack with Duplicate Items/Knapsack with Duplicate Items.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dynamic Programming/DP on Subsequences/Knapsack_01/Knapsack_01.iml" filepath="$PROJECT_DIR$/Dynamic Programming/DP on Subsequences/Knapsack_01/Knapsack_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Binary Trees/Kth_Smallest_element_in_BST/Kth_Smallest_element_in_BST.iml" filepath="$PROJECT_DIR$/Binary Trees/Kth_Smallest_element_in_BST/Kth_Smallest_element_in_BST.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dynamic Programming/DP on Strings/Levenshtein_Algorithm_DP/Levenshtein_Algorithm_DP.iml" filepath="$PROJECT_DIR$/Dynamic Programming/DP on Strings/Levenshtein_Algorithm_DP/Levenshtein_Algorithm_DP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Linked Lists/Linked Lists.iml" filepath="$PROJECT_DIR$/Linked Lists/Linked Lists.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dynamic Programming/DP on Strings/Longest Common Subsequence/Longest Common Subsequence.iml" filepath="$PROJECT_DIR$/Dynamic Programming/DP on Strings/Longest Common Subsequence/Longest Common Subsequence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Matrix/Longest Increasing Path in a matrix/Longest Increasing Path in a matrix.iml" filepath="$PROJECT_DIR$/Matrix/Longest Increasing Path in a matrix/Longest Increasing Path in a matrix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Strings/Longest_Palindromic_Substring/Longest_Palindromic_Substring.iml" filepath="$PROJECT_DIR$/Strings/Longest_Palindromic_Substring/Longest_Palindromic_Substring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stack and Queue/Longest_Rectangle_In_Histogram/Longest_Rectangle_In_Histogram.iml" filepath="$PROJECT_DIR$/Stack and Queue/Longest_Rectangle_In_Histogram/Longest_Rectangle_In_Histogram.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Binary Search/Lowest Common Ancestor in BST/Lowest Common Ancestor in BST.iml" filepath="$PROJECT_DIR$/Binary Search/Lowest Common Ancestor in BST/Lowest Common Ancestor in BST.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Math/Math.iml" filepath="$PROJECT_DIR$/Math/Math.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Matrix/Matrix.iml" filepath="$PROJECT_DIR$/Matrix/Matrix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Graphs/MinimumSpanningTree/MinimumSpanningTree.iml" filepath="$PROJECT_DIR$/Graphs/MinimumSpanningTree/MinimumSpanningTree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Miscellaneous/Miscellaneous.iml" filepath="$PROJECT_DIR$/Miscellaneous/Miscellaneous.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Recursion and Backtracking/Recursion and Backtracking.iml" filepath="$PROJECT_DIR$/Recursion and Backtracking/Recursion and Backtracking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dynamic Programming/Regular Expression Matching/Regular Expression Matching.iml" filepath="$PROJECT_DIR$/Dynamic Programming/Regular Expression Matching/Regular Expression Matching.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Arrays/Repeating And Missing Number/Repeating And Missing Number.iml" filepath="$PROJECT_DIR$/Arrays/Repeating And Missing Number/Repeating And Missing Number.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dynamic Programming/1D DP/Rod Cutting/Rod Cutting.iml" filepath="$PROJECT_DIR$/Dynamic Programming/1D DP/Rod Cutting/Rod Cutting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Binary Search/Search_in_rotated_sorted_array/Search_in_rotated_sorted_array.iml" filepath="$PROJECT_DIR$/Binary Search/Search_in_rotated_sorted_array/Search_in_rotated_sorted_array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Matrix/Set Matrix Zeroes/Set Matrix Zeroes.iml" filepath="$PROJECT_DIR$/Matrix/Set Matrix Zeroes/Set Matrix Zeroes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sliding Window/Sliding Window.iml" filepath="$PROJECT_DIR$/Sliding Window/Sliding Window.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sliding Window/Sliding Window Maximum/Sliding Window Maximum.iml" filepath="$PROJECT_DIR$/Sliding Window/Sliding Window Maximum/Sliding Window Maximum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sorting/Sorting.iml" filepath="$PROJECT_DIR$/Sorting/Sorting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sorting/Sorting-Algo/Sorting-Algo.iml" filepath="$PROJECT_DIR$/Sorting/Sorting-Algo/Sorting-Algo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Arrays/Spit Array Largest Sum/Spit Array Largest Sum.iml" filepath="$PROJECT_DIR$/Arrays/Spit Array Largest Sum/Spit Array Largest Sum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stack and Queue/Stack and Queue.iml" filepath="$PROJECT_DIR$/Stack and Queue/Stack and Queue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Strings/Strings.iml" filepath="$PROJECT_DIR$/Strings/Strings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Matrix/Transpose_of_a_Matrix/Transpose_of_a_Matrix.iml" filepath="$PROJECT_DIR$/Matrix/Transpose_of_a_Matrix/Transpose_of_a_Matrix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tries/Tries.iml" filepath="$PROJECT_DIR$/Tries/Tries.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Two Pointers/Triplet_Sum_in_Array/Triplet_Sum_in_Array.iml" filepath="$PROJECT_DIR$/Two Pointers/Triplet_Sum_in_Array/Triplet_Sum_in_Array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Two Pointers/Two Pointers.iml" filepath="$PROJECT_DIR$/Two Pointers/Two Pointers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Binary Trees/Two_sum_in_BST/Two_sum_in_BST.iml" filepath="$PROJECT_DIR$/Binary Trees/Two_sum_in_BST/Two_sum_in_BST.iml" />
+    </modules>
+  </component>
+</project>
