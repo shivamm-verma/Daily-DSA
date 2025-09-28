@@ -10,12 +10,14 @@ public class code {
         int n = s.length(), minLen = Integer.MAX_VALUE;
         String ans = "";
 
+        Set<Character> requiredChars = new HashSet<>();
+        for (char c : t.toCharArray()) requiredChars.add(c);
         for (int i = 0; i < n; i++) {
             int[] need = new int[128];
             for (char c : t.toCharArray()) need[c]++;
             for (int j = i; j < n; j++) {
                 char c = s.charAt(j);
-                if (need[c] > 0) need[c]--;
+                if (requiredChars.contains(c) && need[c] > 0) need[c]--;
                 if (allCovered(need)) {
                     if (j - i + 1 < minLen) {
                         ans = s.substring(i, j + 1);
