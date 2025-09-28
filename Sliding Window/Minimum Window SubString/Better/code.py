@@ -9,7 +9,7 @@ def minWindowBetter(s, t):
     for i in range(n):
         need = Counter(t)
         for j in range(i, n):
-            if need[s[j]] > 0:
+            if s[j] in need:
                 need[s[j]] -= 1
             if allCovered(need):
                 if j - i + 1 < minLen:
