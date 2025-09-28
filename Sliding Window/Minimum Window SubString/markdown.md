@@ -6,8 +6,8 @@
 Given two strings `s` and `t`, return the **minimum window substring** of `s` such that every character in `t` is included.  If no such substring exists, return `""`.
 
 **Examples:**  
-- Input: `"s = "ADOBECODEBANC", t = "ABC"` → Output: `"BANC"`  
-- Input: `"s = "a", t = "a"` → Output: `"a"`  
+- Input: `s = "ADOBECODEBANC", t = "ABC"` → Output: `"BANC"`  
+- Input: `s = "a", t = "a"` → Output: `"a"`  
 
 **Constraints:**  
 - 1 <= s.length, t.length <= 10^5  
