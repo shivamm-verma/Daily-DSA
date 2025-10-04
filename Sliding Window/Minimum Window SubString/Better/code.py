@@ -1,7 +1,7 @@
 from collections import Counter
 
 def allCovered(need):
-    return all(x == 0 for x in need.values())
+    return all(x <= 0 for x in need.values())
 
 def minWindowBetter(s, t):
     n = len(s)
