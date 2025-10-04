@@ -1,29 +1,34 @@
-🔄 Next Greater Element in Circular Array
-🧠 Problem
+## ✅ DSA Question: Next Greater Element in Circular Array
 
-Given a circular array, find the Next Greater Element (NGE) for every element
+---
 
-● The Next Greater Element of a number is the first greater number in traversal order.
-● Since the array is circular, we wrap around to the start when reaching the end.
-● If no greater number exists, return -1.
+### 🧠 Problem  
+Given a circular array, find the Next Greater Element (NGE) for every element.
 
-Examples
+- The Next Greater Element of a number is the first greater number found when traversing the array forward.
+- Since the array is circular, traversal wraps around to the start after the end.
+- If no greater number exists for an element, return `-1` for that element.
 
-● Input: nums = [1, 2, 1]
-  Output: [2, -1, 2]
+**Examples:**  
+- Input: `[1, 2, 1]` → Output: `[2, -1, 2]`  
+- Input: `[5, 4, 3, 2, 1]` → Output: `[-1, 5, 5, 5, 5]`
 
-● Input: nums = [5, 4, 3, 2, 1]
-  Output: [-1, 5, 5, 5, 5]
+---
 
-🧭 Approach
+## 🧭 Approach
 
-● Use a monotonic decreasing stack to keep track of indices whose NGE hasn’t been found yet.
-● Traverse the array twice (2 * n) to simulate circularity.
-● At each step:
-  ● While the current number is greater than the stack’s top element, pop it and assign the current number as its NGE.
-  ● Push the current index onto the stack if we are still in the first pass.
+1. Use a monotonic decreasing stack to store indices of elements whose NGE is not yet found.
+2. Traverse the array twice (from `0` to `2*n - 1`) to simulate circularity.
+3. For each element in the traversal:
+   - While the stack is not empty and the current element is greater than the element at the top of the stack:
+     - Pop the top index from the stack.
+     - Assign the current element as the NGE for the popped index.
+   - If in the first pass (`i < n`), push the current index onto the stack.
 
-🔁 Generic Logic (Pseudocode)
+---
+
+## 🔁 Generic Logic (Pseudocode)
+```plaintext
 function nextGreaterElements(nums):
     n = length(nums)
     result = array of size n filled with -1
@@ -38,11 +43,12 @@ function nextGreaterElements(nums):
             stack.push(i)
 
     return result
+```
 
-⏱️ Complexities
+## ⏱️ Complexities
 
-● Time Complexity: O(n)
-  ● Each element is pushed and popped at most once.
+> Time Complexity
+O(n) — each element is pushed and popped at most once.
 
-● Space Complexity: O(n)
-  ● Stack stores indices for unresolved elements.
+> Space Complexity
+O(n) — stack stores indices of unresolved elements, and result array of size n.
