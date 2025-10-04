@@ -39,7 +39,7 @@ public class TowerOfHanoiExample {
     }
 }
 
----
+```
 
 ## ☕ Cpp Implementation
 
@@ -65,8 +65,7 @@ int main() {
     TowerOfHanoi(n, 'A', 'B', 'C'); // A, B, C are the names of rods
     return 0;
 }
-
----
+```
 
 ## ☕ Js Implementation
 
@@ -86,7 +85,7 @@ function towerOfHanoi(n, src, dest, aux) {
 let n = 4; // Number of disks
 towerOfHanoi(n, 'A', 'B', 'C'); // A, B, C are the names of rods
 
----
+```
 
 ## ☕ Python Implementation
 
@@ -103,3 +102,4 @@ def tower_of_hanoi(n, src, dest, aux):
 # Driver code
 n = 4  # Number of disks
 tower_of_hanoi(n, 'A', 'B', 'C')  # A, B, C are the names of rods
+```
