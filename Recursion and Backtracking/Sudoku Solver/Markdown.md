@@ -1,5 +1,6 @@
-## Problem: Sudoku Solver  
+## ✅ DSA Question: Solve the Sudoku game by filling emmpty cells
 
+### 🧠 Problem  
 Write a program to solve a Sudoku puzzle by filling the empty cells.  
 
 A Sudoku solution must satisfy the following rules:  
@@ -8,10 +9,9 @@ A Sudoku solution must satisfy the following rules:
 3. Each digit `1–9` must appear exactly once in each of the 9 sub-boxes of the grid.  
 
 The empty cells are denoted by `'.'`.  
-
-## 🧪 Example
-Input(9X9 Board):
-[
+**Examples:**  
+- Input: `
+  [
   ["5","3",".",".","7",".",".",".","."],
   ["6",".",".","1","9","5",".",".","."],
   [".","9","8",".",".",".",".","6","."],
@@ -21,9 +21,8 @@ Input(9X9 Board):
   [".","6",".",".",".",".","2","8","."],
   [".",".",".","4","1","9",".",".","5"],
   [".",".",".",".","8",".",".","7","9"]
-]
-
-Output:
+]` 
+- Output: `
 [
   ["5","3","4","6","7","8","9","1","2"],
   ["6","7","2","1","9","5","3","4","8"],
@@ -34,24 +33,30 @@ Output:
   ["9","6","1","5","3","7","2","8","4"],
   ["2","8","7","4","1","9","6","3","5"],
   ["3","4","5","2","8","6","1","7","9"]
-]
+]`  
 
+---
 
-## Backtracking-Based Approach
-## 💡 Idea
-Backtracking tries to fill empty cells one by one with a candidate digit 1–9. For each empty cell:
-1. Try a candidate digit that doesn't violate row, column, and 3×3-box constraints.
-2. Place it and recursively attempt to fill the next empty cell.
-3. If at any point no candidate leads to a solution, undo (backtrack) the last assignment and try the next candidate.
-4. Continue until the board is filled or all possibilities are exhausted.
-5. This approach is straightforward, easy to implement, and effective for standard 9×9 Sudoku because the constraint checks prune the search heavily.
+## 🧭 Approach
 
-## Generic Code
-#include <vector>
-using namespace std;
+1.  Parse input board:  
+   - Build `rows[9]`, `cols[9]`, `boxes[9]` sets containing digits already present.  
+   - A list empties of coordinates for cells with `.`.
 
-class SudokuSolver {
-public:
+2. Backtracking recursion:  
+   - If no empties remain, success.
+   - Choose next empty cell. (Prefer cell with fewest candidates.)
+   - For each candidate digit:
+      - Place digit, update rows, cols, boxes.
+      - Recurse to solve remaining empties.
+      - If recursion returns success, propagate True.
+      - Otherwise undo placement (backtrack) and try next candidate.
+        
+3. Return solved board when recursion completes successfully; otherwise, the puzzle is unsolvable.
+---
+
+## 🔁 Generic Logic (Pseudocode)
+```plaintext
     bool isSafe(vector<vector<char>>& board, int row, int col, char val) {
         // Check column
         for (int i = 0; i < 9; i++) {
@@ -93,39 +98,13 @@ public:
     void solveSudoku(vector<vector<char>>& board) {
         backtrack(board);
     }
-};
+```
 
-## ⚙️ Complexity
- >Time complexity (worst-case): Exponential. Backtracking explores a search tree; a loose upper bound is O(9^(N)) where N is number of empty cells. In practice, constraints prune the search drastically for typical Sudoku puzzles.
+## ⏱️ Complexities
+ > Time Complexity
+**O(9^(N))** — where N is number of empty cells
 
- >Space complexity: O(N) for recursion and tracking empties, plus O(1) extra for the fixed-size row/col/box sets (constant 9×9). If bitmask optimizations used, memory remains O(1) additional.
-
-## 🔍 Key Insights
-1. Constraints prune heavily: Row/column/box checks eliminate many candidates early, so backtracking is practical for 9×9 Sudoku.
-
-2. Order matters: Choosing the empty cell with the fewest legal candidates (minimum remaining value heuristic) reduces branching and speeds up solving.
-
-3. Fast checks: Maintaining occupancy structures (sets or bitmasks) for rows, columns, and boxes makes validity checks O(1).
-
-4. Deterministic filling: If any cell has only one possible digit, fill it immediately — this can be integrated into preprocessing or within recursion to reduce search.
-
-5. Bitmasks help: Representing possible digits as bits (9-bit integers) makes intersection and candidate enumeration faster and memory friendly.
-
-## 📝 Algorithm Steps
-1. Parse input board. Build:
-rows[9], cols[9], boxes[9] sets containing digits already present.
-A list empties of coordinates for cells with '.'.
-
-2. Backtracking recursion:
-2.1 If no empties remain, success.
-2.2 Choose next empty cell. (Prefer cell with fewest candidates.)
-2.3 For each candidate digit:
-2.3.1 Place digit, update rows, cols, boxes.
-2.3.2 Recurse to solve remaining empties.
-2.3.3 If recursion returns success, propagate True.
-2.3.4 Otherwise undo placement (backtrack) and try next candidate.
-
-Return solved board when recursion completes successfully; otherwise, the puzzle is unsolvable.
-
+> Space Complexity
+**O(1)** — constant space; no extra space used except pointers.
 
 
