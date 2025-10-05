@@ -1,105 +1,51 @@
-# Tower of Hanoi in Four Languages (Java, C++, Python, JavaScript)
+✅ DSA Question: Tower of Hanoi
+🧠 Problem
 
-The **Tower of Hanoi** is a classic recursive algorithm that involves moving disks between rods under certain constraints. This document presents its implementation in four different programming languages: Java, C++, Python, and JavaScript.
+Given three rods and n disks of different sizes, the objective is to move all the disks from the source rod to the destination rod, using the auxiliary rod, following these constraints:
 
----
+Only one disk may be moved at a time.
 
-## 🧠 Problem Description
+Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack.
 
-Given three rods and `n` disks of different sizes, the objective is to move all the disks from the source rod to the destination rod following these rules:
+No larger disk may be placed on top of a smaller disk.
 
-1. Only one disk may be moved at a time.
-2. Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack.
-3. No larger disk may be placed on top of a smaller disk.
+Example:
+For n = 3, the steps to move disks from Rod A to Rod C using Rod B would follow the recursive pattern:
 
----
+Move 2 disks to auxiliary
 
-## ☕ Java Implementation
+Move bottom disk to destination
 
-```java
-import java.util.*;
+Move 2 disks from auxiliary to destination
 
-public class TowerOfHanoiExample {
+🧭 Approach
 
-    // Recursive Java function to solve the Tower of Hanoi
-    public static void TowerOfHanoi(int n, char src, char dest, char aux) {
-        if (n == 1) {
-            System.out.println("Move disk 1 from source " + src + " to destination " + dest);
-            return;
-        }
+If there's only one disk, move it directly from source to destination.
 
-        TowerOfHanoi(n - 1, src, aux, dest);
-        System.out.println("Move disk " + n + " from source " + src + " to destination " + dest);
-        TowerOfHanoi(n - 1, aux, dest, src);
-    }
+Otherwise:
 
-    public static void main(String[] args) {
-        int n = 4;
-        TowerOfHanoi(n, 'A', 'B', 'C');
-    }
-}
+Move n-1 disks from source to auxiliary rod.
 
----
+Move the remaining disk to destination rod.
 
-## ☕ Cpp Implementation
+Move the n-1 disks from auxiliary to destination rod.
 
-```cpp
-#include <iostream>
-using namespace std;
+🔁 Generic Logic (Pseudocode)
 
-// Recursive C++ function to solve the Tower of Hanoi
-void TowerOfHanoi(int n, char src, char dest, char aux) {
-    if (n == 1) { // Base Case
-        cout << "Move disk 1 from source " << src << " to destination " << dest << endl;
-        return;
-    }
+function towerOfHanoi(n, source, destination, auxiliary):
 
-    TowerOfHanoi(n - 1, src, aux, dest); // Recursive Call 1
-    cout << "Move disk " << n << " from source " << src << " to destination " << dest << endl;
-    TowerOfHanoi(n - 1, aux, dest, src); // Recursive Call 2
-}
-
-// Driver code
-int main() {
-    int n = 4; // Number of disks
-    TowerOfHanoi(n, 'A', 'B', 'C'); // A, B, C are the names of rods
-    return 0;
-}
-
----
-
-## ☕ Js Implementation
-
-```js
-function towerOfHanoi(n, src, dest, aux) {
-    if (n === 1) {
-        console.log(`Move disk 1 from source ${src} to destination ${dest}`);
-        return;
-    }
-
-    towerOfHanoi(n - 1, src, aux, dest);
-    console.log(`Move disk ${n} from source ${src} to destination ${dest}`);
-    towerOfHanoi(n - 1, aux, dest, src);
-}
-
-// Driver code
-let n = 4; // Number of disks
-towerOfHanoi(n, 'A', 'B', 'C'); // A, B, C are the names of rods
-
----
-
-## ☕ Python Implementation
-
-```python
-def tower_of_hanoi(n, src, dest, aux):
     if n == 1:
-        print(f"Move disk 1 from source {src} to destination {dest}")
+        print "Move disk 1 from", source, "to", destination
         return
 
-    tower_of_hanoi(n - 1, src, aux, dest)
-    print(f"Move disk {n} from source {src} to destination {dest}")
-    tower_of_hanoi(n - 1, aux, dest, src)
+    towerOfHanoi(n - 1, source, auxiliary, destination)
+    print "Move disk", n, "from", source, "to", destination
+    towerOfHanoi(n - 1, auxiliary, destination, source)
 
-# Driver code
-n = 4  # Number of disks
-tower_of_hanoi(n, 'A', 'B', 'C')  # A, B, C are the names of rods
+⏱️ Complexities
+
+Time Complexity
+O(2ⁿ - 1) — Exponential; each call spawns two more for n-1 disks.
+
+Space Complexity
+O(n) — Recursion stack depth is proportional to number of disks.
