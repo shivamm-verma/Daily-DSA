@@ -33,7 +33,6 @@ Move the n-1 disks from auxiliary to destination rod.
 🔁 Generic Logic (Pseudocode)
 
 function towerOfHanoi(n, source, destination, auxiliary):
-
     if n == 1:
         print "Move disk 1 from", source, "to", destination
         return
