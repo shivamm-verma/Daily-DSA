@@ -1,4 +1,3 @@
-from bisect import bisect_right
 
 # Function to count the number of pairs with difference <= mid
 def count_pairs(nums, mid):
