@@ -1,5 +1,7 @@
-✅ DSA Question: Kth Smallest Pair Difference
+✅ DSA Question: Kth Smallest Pair Difference 
+
 🧠 Problem
+
 Given an array of integers, find the Kth smallest absolute difference between any two elements.  
 Equivalent to LeetCode #719 — “Kth Smallest Pair Distance”.
 
