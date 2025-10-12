@@ -1,23 +1,31 @@
-✅ DSA Question: Kth Smallest Pair Difference 
+## ✅ DSA Question: Kth Smallest Pair Difference
 
-🧠 Problem
+---
+
+### 🧠 Problem
 
 Given an array of integers, find the Kth smallest absolute difference between any two elements.  
 Equivalent to LeetCode #719 — “Kth Smallest Pair Distance”.
 
-Examples:
+**Examples:**  
+- Input: arr = [1, 3, 4], k = 2 → Output: 2  
+- Input: arr = [1, 1, 3], k = 2 → Output: 2  
 
-Input: arr = [1, 3, 4], k = 2 → Output: 2  
-Input: arr = [1, 1, 3], k = 2 → Output: 2  
+---
 
-🧭 Approach
+## 🧭 Approach
+
 1. Sort the array.  
 2. Use binary search on the difference value `d`.  
 3. For each `d`, count pairs with difference ≤ d using two pointers.  
 4. If count ≥ k → move left; else move right.  
 5. Return the smallest `d` satisfying the condition.
 
-🔁 Generic Logic (Pseudocode)
+---
+
+## 🔁 Generic Logic (Pseudocode)
+
+```plaintext
 function smallestDistancePair(nums, k):
     sort nums
     left = 0
@@ -39,10 +47,20 @@ function count_pairs(mid):
             left += 1
         count += right - left
     return count
+```
 
-⏱️ Complexities
-Time Complexity: O(n log W), where W = max(arr) - min(arr)  
-Space Complexity: O(1)  
+---
 
-🧩 Bonus / Extensions
-- Can be extended to “Kth Largest Pair Difference” or “Kth Smallest Pair Sum”.
+## ⏱️ Complexities
+
+> Time Complexity: **O(n log W)**, where W = max(arr) - min(arr)  
+> Space Complexity: **O(1)**
+
+---
+
+### 🧩 Bonus / Extensions
+
+- Can be extended to **“Kth Largest Pair Difference”**  
+- Can be extended to **“Kth Smallest Pair Sum”**
+
+---
