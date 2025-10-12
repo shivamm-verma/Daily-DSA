@@ -44,10 +44,10 @@ Minimum cost to cut the chocolate: 42
 4. While both arrays have cuts remaining:
    - Compare **costHor[h]** and **costVer[v]**.
    - If **costHor[h] >= costVer[v]**:
-     - Add **costHor[h] * vp** to total cost.
+     - Add **costHor[h] \* vp** to total cost.
      - Increment **h** and **hp**.
    - Else:
-     - Add **costVer[v] * hp** to total cost.
+     - Add **costVer[v] \* hp** to total cost.
      - Increment **v** and **vp**.
 5. Add remaining horizontal cuts: multiply each by current **vp**.
 6. Add remaining vertical cuts: multiply each by current **hp**.
