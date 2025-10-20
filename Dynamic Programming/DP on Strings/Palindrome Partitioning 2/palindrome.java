@@ -2,6 +2,9 @@ class Solution
 {
     public int minCut(String s)
     {
+        // If the string is empty, return 0 cuts.
+        if (s.length() == 0) return 0;
+        
         int n = s.length();
       
         // isPalindrome[i][j] indicates whether substring s[i...j] is a palindrome
