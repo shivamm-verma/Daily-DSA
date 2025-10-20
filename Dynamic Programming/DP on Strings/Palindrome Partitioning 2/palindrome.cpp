@@ -4,6 +4,9 @@ using namespace std;
 class Solution {
 public:
     int minCut(string s) {
+        // If the string is empty, return 0 cuts.
+        if (s.empty()) return 0;
+        
         int n = s.size();
       
         // isPalindrome[i][j] indicates whether substring s[i...j] is a palindrome
